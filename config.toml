@@ -1,4 +1,79 @@
 baseURL = "http://example.org/"
 languageCode = "en-us"
-title = "My New Hugo Site"
-theme = "ananke"
+title = "Kubegene"
+theme = "theer"
+
+[Params]
+  RSSLink = "/index.xml"
+  author = "kubeflow.org" # add your company name
+  github = "kubeflow" # add your github profile name
+  twitter = "" # add your twitter profile
+  email = "myemail@myaddress.xxx"
+
+  version = "master"
+  githubbranch = "master"
+
+# Add new release versions here
+[[Params.versions]]
+  version = "master"
+  githubbranch = "master"
+  url = "https://master.kubeflow.org"
+
+[[Params.versions]]
+  version = "v0.2"
+  githubbranch = "v0.2-branch"
+  url = "https://v0-2.kubeflow.org"
+
+[[Params.versions]]
+  version = "v0.3"
+  githubbranch = "v0.3-branch"
+  url = "https://v0-3.kubeflow.org"
+
+[[menu.main]]
+    name = "What is Kubeflow?"
+    weight = -103
+    url = "/docs/about/kubeflow/"
+[[menu.main]]
+    name = "Getting Started"
+    weight = -102
+    url = "/docs/started/getting-started/"
+[[menu.main]]
+    name = "Documentation"
+    weight = -101
+    url = "/docs/about/kubeflow/"
+[[menu.main]]
+    name = "Additional Resources"
+    weight = -100
+    url = "/blog/"
+[[menu.main]]
+    name = "GitHub"
+    weight = -99
+    url = "https://github.com/kubeflow/"
+
+[[menu.docs]]
+  name = "About"
+  weight = 1
+  identifier = "about"
+  url = "/docs/about/"
+[[menu.docs]]
+  name = "Getting Started"
+  weight = 2
+  identifier = "started"
+  url = "/docs/started/"
+[[menu.docs]]
+  name = "Guides"
+  weight = 3
+  identifier = "guides"
+  url = "/docs/guides/"
+[[menu.docs]]
+  name = "Components"
+  weight = 4
+  parent = "guides"
+  identifier = "components"
+  url = "/docs/guides/components/"
+[[menu.docs]]
+  name = "GKE"
+  weight = 5
+  parent = "guides"
+  identifier = "gke"
+  url = "/docs/guides/gke/"
