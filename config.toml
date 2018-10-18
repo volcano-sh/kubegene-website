@@ -5,32 +5,13 @@ theme = "theer"
 
 [Params]
   RSSLink = "/index.xml"
-  author = "kubeflow.org" # add your company name
-  github = "kubeflow" # add your github profile name
+  author = "" # add your company name
+  github = "" # add your github profile name
   twitter = "" # add your twitter profile
   email = "myemail@myaddress.xxx"
 
-  version = "master"
-  githubbranch = "master"
-
-# Add new release versions here
-[[Params.versions]]
-  version = "master"
-  githubbranch = "master"
-  url = "https://master.kubeflow.org"
-
-[[Params.versions]]
-  version = "v0.2"
-  githubbranch = "v0.2-branch"
-  url = "https://v0-2.kubeflow.org"
-
-[[Params.versions]]
-  version = "v0.3"
-  githubbranch = "v0.3-branch"
-  url = "https://v0-3.kubeflow.org"
-
 [[menu.main]]
-    name = "What is Kubeflow?"
+    name = "What is Kubegene?"
     weight = -103
     url = "/docs/about/kubeflow/"
 [[menu.main]]
@@ -38,16 +19,12 @@ theme = "theer"
     weight = -102
     url = "/docs/started/getting-started/"
 [[menu.main]]
-    name = "Documentation"
+    name = "Guides"
     weight = -101
-    url = "/docs/about/kubeflow/"
-[[menu.main]]
-    name = "Additional Resources"
-    weight = -100
-    url = "/blog/"
+    url = "/docs/guides/upgrade/"
 [[menu.main]]
     name = "GitHub"
-    weight = -99
+    weight = -100
     url = "https://github.com/kubeflow/"
 
 [[menu.docs]]
