@@ -22,7 +22,7 @@ runner on a single node in a K8s cluster.
 
 **Note:** Before running a job, you should have [deployed kubeflow to your cluster](#deploy-kubeflow).
 
-To run batch prediction, we create a Kubernetes job to run beam.  Kubeflow provides a [ksonnet prototype](https://github.com/kubeflow/kubeflow/blob/{{< params "githubbranch" >}}/kubeflow/examples/prototypes/tf-batch-predict.jsonnet) suitable for you to to generate a component which you can then customize for your jobs.
+To run batch prediction, we create a Kubernetes job to run beam.  Kubeflow provides a [ksonnet prototype](https://github.com/kubeflow/kubeflow/blob/kubeflow/examples/prototypes/tf-batch-predict.jsonnet) suitable for you to to generate a component which you can then customize for your jobs.
 
 ### Create the component
 

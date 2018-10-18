@@ -77,19 +77,19 @@ ks apply default
 
 Add GPU nodes to your cluster:
 
-  * Set gpu-pool-initialNodeCount [here](https://github.com/kubeflow/kubeflow/blob/{{< params "githubbranch" >}}/scripts/gke/deployment_manager_configs/cluster-kubeflow.yaml#L40).
+  * Set gpu-pool-initialNodeCount [here](https://github.com/kubeflow/kubeflow/blob//scripts/gke/deployment_manager_configs/cluster-kubeflow.yaml#L40).
 
 To use VMs with more CPUs or RAM:
 
   * Change the machineType.
   * There are two node pools:
-      * one for CPU only machines [here](https://github.com/kubeflow/kubeflow/blob/{{< params "githubbranch" >}}/scripts/gke/deployment_manager_configs/cluster.jinja#L96).
-      * one for GPU machines [here](https://github.com/kubeflow/kubeflow/blob/{{< params "githubbranch" >}}/scripts/gke/deployment_manager_configs/cluster.jinja#L96).
-  * When making changes to the node pools you also need to bump the pool-version [here](https://github.com/kubeflow/kubeflow/blob/{{< params "githubbranch" >}}/scripts/gke/deployment_manager_configs/cluster-kubeflow.yaml#L37) before you update the deployment.
+      * one for CPU only machines [here](https://github.com/kubeflow/kubeflow/blob//scripts/gke/deployment_manager_configs/cluster.jinja#L96).
+      * one for GPU machines [here](https://github.com/kubeflow/kubeflow/blob//scripts/gke/deployment_manager_configs/cluster.jinja#L96).
+  * When making changes to the node pools you also need to bump the pool-version [here](https://github.com/kubeflow/kubeflow/blob//scripts/gke/deployment_manager_configs/cluster-kubeflow.yaml#L37) before you update the deployment.
 
 To grant additional users IAM permissions to access Kubeflow:
 
-  * Add the users [here](https://github.com/kubeflow/kubeflow/blob/{{< params "githubbranch" >}}/scripts/gke/deployment_manager_configs/cluster-kubeflow.yaml#L61).
+  * Add the users [here](https://github.com/kubeflow/kubeflow/blob//scripts/gke/deployment_manager_configs/cluster-kubeflow.yaml#L61).
 
 
 After making the changes you need to recreate your deployment:

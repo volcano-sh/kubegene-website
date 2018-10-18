@@ -46,8 +46,8 @@ For more general information on setting up a Kubernetes cluster please refer to 
 
 Requirements:
 
-  * ksonnet version {{% ksonnet-min-version %}} or later.
-  * Kubernetes {{% kubernetes-min-version %}} or later
+  * ksonnet version  or later.
+  * Kubernetes  or later
   * kubectl
 
 Download, set up, and deploy:
@@ -57,7 +57,7 @@ Download, set up, and deploy:
     ```
     mkdir ${KUBEFLOW_SRC}
     cd ${KUBEFLOW_SRC}
-    export KUBEFLOW_TAG={{% kf-stable-tag %}}
+    export KUBEFLOW_TAG=
     curl https://raw.githubusercontent.com/kubeflow/kubeflow/${KUBEFLOW_TAG}/scripts/download.sh | bash
      ```
    * **KUBEFLOW_SRC** a directory where you want to download the source to

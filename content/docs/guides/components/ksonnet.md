@@ -14,7 +14,7 @@ Kubeflow makes use of [ksonnet] to help manage deployments.
 ## Installing ksonnet
 
 Make sure you have the minimum required version of ksonnet:
-{{% ksonnet-min-version %}} or later.
+or later.
 
 Follow the steps below to install ksonnet:
 

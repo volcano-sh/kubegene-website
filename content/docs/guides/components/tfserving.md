@@ -102,7 +102,7 @@ for serving an object detection model with GPU.
 
 ### Deploying
 
-Deploy the model component. Ksonnet will pick up existing parameters for your environment (e.g. cloud, nocloud) and customize the resulting deployment appropriately. To see more parameters look through tf-serving {{% tf-serving-version %}} or later.
+Deploy the model component. Ksonnet will pick up existing parameters for your environment (e.g. cloud, nocloud) and customize the resulting deployment appropriately. To see more parameters look through tf-serving or later.
 
 ```
 ks apply ${KF_ENV} -c ${MODEL_COMPONENT}
