@@ -3,6 +3,7 @@ languageCode = "en-us"
 title = "Kubegene"
 theme = "theer"
 
+
 [Params]
   RSSLink = "/index.xml"
   author = "" # add your company name
@@ -12,19 +13,19 @@ theme = "theer"
 
 [[menu.main]]
     name = "What is Kubegene?"
-    weight = -103
-    url = "/docs/about/kubeflow/"
+    weight = 10
+    url = "/docs/about/"
 [[menu.main]]
     name = "Getting Started"
-    weight = -102
-    url = "/docs/started/getting-started/"
+    weight = 20
+    url = "/docs/started/"
 [[menu.main]]
     name = "Guides"
-    weight = -101
-    url = "/docs/guides/upgrade/"
+    weight = 30
+    url = "/docs/guides/"
 [[menu.main]]
     name = "GitHub"
-    weight = -100
+    weight = 40
     url = "https://github.com/kubeflow/"
 
 [[menu.docs]]

@@ -4,8 +4,8 @@ description = "Quickly get Kubeflow running locally"
 weight = 10
 toc = true
 bref = "This document will outline steps that will get your local installation of Kubeflow running on top of Mikikube. Minikube runs a simple, single-node Kubernetes cluster inside a virtual machine (VM)."
-[menu.docs]
-  parent = "started"
+[menu.main]
+  parent = "Getting Started"
   weight = 2
 +++
 

@@ -5,8 +5,8 @@ weight = 10
 toc = true
 bref= "The guides in this section give detailed information about using Kubeflow and its components."
 aliases = ["/docs/guides/"]
-[menu.docs]
-  parent = "guides"
+[menu.main]
+  parent = "Guides"
   weight = 1
 +++
 

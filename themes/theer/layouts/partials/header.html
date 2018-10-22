@@ -1,6 +1,10 @@
-<nav class="UnderlineNav UnderlineNav--right px-2">
+<nav class="UnderlineNav UnderlineNav--right px-2"> 
   <a class="UnderlineNav-actions h2" href="{{ .Site.BaseURL }}">
-    {{ .Site.Title }}
+    <span class = "logo">
+         <img  src="/logo.svg" > </img>
+    </span>
+    <span class = "title-name">{{ .Site.Title }}</span>
+    
   </a>
 
   {{ $currentPage := . }}

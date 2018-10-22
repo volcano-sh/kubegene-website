@@ -3,8 +3,8 @@ title = "Troubleshooting"
 description = "Troubleshooting Kubeflow"
 weight = 10
 toc = true
-[menu.docs]
-  parent = "guides"
+[menu.main]
+  parent = "Guides"
   weight = 20
 +++
 

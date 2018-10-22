@@ -5,8 +5,8 @@ weight = 10
 toc = true
 bref = "Welcome to the Kubeflow project! "
 aliases = ["/docs/contributing/"]
-[menu.docs]
-  parent = "about"
+[menu.main]
+  parent = "What is Kubegene?"
   weight = 3
 +++
 ## Getting started as a Kubeflow contributor
