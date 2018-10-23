@@ -4,7 +4,7 @@ description = "00000000000000000Quickly get running with your ML Workflow"
 weight = 10
 toc = true
 bref = "======================================================="
-aliases = ["/docs/execution/"]
+aliases = ["/docs/about/execution/"]
 [menu.main]
   parent = "What is Kubegene?"
   weight = 2
