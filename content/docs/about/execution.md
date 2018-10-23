@@ -1,13 +1,13 @@
 +++
-title = "xxxxxx"
+title = "Execution Overview"
 description = "00000000000000000Quickly get running with your ML Workflow"
 weight = 10
 toc = true
 bref = "======================================================="
-aliases = ["/docs/about/execution/"]
+aliases = ["/docs/execution/"]
 [menu.main]
   parent = "What is Kubegene?"
-  weight = 2
+  weight = 5
 +++
 
 
