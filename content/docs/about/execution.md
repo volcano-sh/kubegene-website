@@ -5,7 +5,7 @@ weight = 10
 aliases = ["/docs/execution/"]
 [menu.main]
   parent = "What is Kubegene?"
-  weight = 1
+  weight = 4
 +++
 
 ## Understanding Execution
