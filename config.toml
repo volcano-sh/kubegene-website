@@ -26,32 +26,5 @@ theme = "theer"
 [[menu.main]]
     name = "GitHub"
     weight = 40
-    url = "https://github.com/kubeflow/"
+    url = "https://github.com/kubegene/"
 
-[[menu.docs]]
-  name = "About"
-  weight = 1
-  identifier = "about"
-  url = "/docs/about/"
-[[menu.docs]]
-  name = "Getting Started"
-  weight = 2
-  identifier = "started"
-  url = "/docs/started/"
-[[menu.docs]]
-  name = "Guides"
-  weight = 3
-  identifier = "guides"
-  url = "/docs/guides/"
-[[menu.docs]]
-  name = "Components"
-  weight = 4
-  parent = "guides"
-  identifier = "components"
-  url = "/docs/guides/components/"
-[[menu.docs]]
-  name = "GKE"
-  weight = 5
-  parent = "guides"
-  identifier = "gke"
-  url = "/docs/guides/gke/"
