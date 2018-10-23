@@ -2,7 +2,10 @@
 title =  "Execution Overview"
 description = "This page provides an overview of `Execution`, the smallest deployable object in the Kubegene object model."
 weight = 10
-toc = true
+aliases = ["/docs/execution/"]
+[menu.main]
+  parent = "What is Execution?"
+  weight = 1
 +++
 
 ## Understanding Execution
