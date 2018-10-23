@@ -4,7 +4,7 @@ description = "This page provides an overview of `Execution`, the smallest deplo
 weight = 10
 aliases = ["/docs/execution/"]
 [menu.main]
-  parent = "What is Execution?"
+  parent = "What is Kubegene?"
   weight = 1
 +++
 
