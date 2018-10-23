@@ -6,8 +6,11 @@ bref = "The Kubeflow project is dedicated to making deployments of machine learn
 aliases = ["/docs/", "/docs/about/", "/docs/kubeflow/"]
 [menu.main]
   parent = "What is Kubegene?"
-  weight = 2
+  weight = 1
 +++
+## The Kubeflow test
+
+xuzhonghu
 
 ## The Kubeflow mission
 
