@@ -69,13 +69,12 @@ workflow:
       <td>array[string]</td>
       <td>The command executed in the container. The length of the array indicates the number of concurrent. Each member represents a command executed in a container.In the following example, if there are four lines in the command, the number of concurrent containers is 4, and each container 
          executes a different command.
-
-         commands:
-         - sh /obs/shell/run-xxx/run.sh 1 a 
-         - sh /obs/shell/run-xxx/run.sh 2 a 
-         - sh /obs/shell/run-xxx/run.sh 1 b 
-         - sh /obs/shell/run-xxx/run.sh 2 b 
-
+         <pre>
+commands:
+  - sh /obs/shell/run-xxx/run.sh 1 a 
+  - sh /obs/shell/run-xxx/run.sh 2 a 
+  - sh /obs/shell/run-xxx/run.sh 1 b 
+  - sh /obs/shell/run-xxx/run.sh 2 b </pre>
 Note 1: One of field commands and commandsIter must be set. Use commandsIter if the commands need to pass variables, otherwise use commands.
       </td>
    </tr>
