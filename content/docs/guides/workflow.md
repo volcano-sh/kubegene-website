@@ -13,7 +13,8 @@ aliases = ["/docs/guides/"]
 
 # Workflow
 
-Required. Define the tasks involved in the process and the dependencies between the tasks. A workflow consists of multiple steps, each of which can perform a specific task.
+Required. Define the tasks involved in the process and the dependencies between the tasks.   
+A workflow consists of multiple steps, each of which can perform a specific task.
 
 ## workflow format
 
@@ -43,7 +44,9 @@ workflow:
       <td>task name</td>
       <td>Yes</td>
       <td>String   </td>
-      <td>The name of task. It must consist of lower case alphanumeric characters or '-', and must start and end with an alphanumeric character. And must be no more than 40 characters.</td>
+      <td>The name of task. It must consist of lower case alphanumeric characters or '-',   
+      and must start and end with an alphanumeric character. And must be no more than   
+      40 characters.</td>
    </tr>
    <tr>
       <td>description</td>
@@ -67,8 +70,11 @@ workflow:
       <td>commands</td>
       <td>No</td>
       <td>array[string]</td>
-      <td>The command executed in the container. The length of the array indicates the number of concurrent. Each member represents a command executed in a container.In the following example, if there are four lines in the command, the number of concurrent containers is 4, and each container 
-         executes a different command.
+      <td>The command executed in the container. The length of the array indicates   
+      the number of concurrent. Each member represents a command executed in a   
+      container.In the following example, if there are four lines in the command,   
+      the number of concurrent containers is 4, and each container executes a   
+      different command.
          <pre>
 commands:
   - sh /obs/shell/run-xxx/run.sh 1 a 
@@ -143,31 +149,33 @@ Note 1: One of field commands and commandsIter must be set. Use commandsIter if 
       <td>Yes</td>
       <td>String</td>
       <td>A shell script with variables, for example:
-
-        echo ${1} ${2} ${item} 
-
+      <pre>echo ${1} ${2} ${item} </pre>
 There are two ways to define variables: 
 <ul>
 <li>
-Variable parameters defined in commandsIter, including vars and varsIter parameters, you can set one of them. The format is “${n}”, n is a positive integer starting at 1. And it will be replaced by the nth element of vars. The vars needs to list all combinations of parameter, and the varsIter is an automatic traversal combination of parameter.
+Variable parameters defined in commandsIter, including vars and varsIter parameters,  
+ you can set one of them. The format is “${n}”, n is a positive integer starting at 1.   
+ And it will be replaced by the nth element of vars. The vars needs to list all   
+ combinations of parameter, and the varsIter is an automatic traversal combination of parameter.
 </li>
 <li>Built-in variable "${item}". Represent the order number of all the possible parameter combinations.
 </li>
 </ul>
 For example:
-
+<pre>
     commandsIter: 
       command: echo ${1} ${item} 
         vars:
           - a
           - b 
-          - c 
+          - c </pre>
    
 Then the final command will be:
-
+<pre>
     - echo a 0 
     - echo b 1 
     - echo c 2
+</pre>
 </td>
    </tr>
    <tr>
@@ -184,31 +192,31 @@ Then the final command will be:
       </li>
       </ul>
       For example, the vars has four lines.
-      
-        command: echo ${1} ${2} ${item} 
-        vars: 
-          - [0, 0] # 0 -> ${1}; 0 -> ${2}; 0 -> ${item}
-          - [0, 1] # 0 -> ${1}; 1 -> ${2}; 1 -> ${item} 
-          - [1, 0] # 1 -> ${1}; 0 -> ${2}; 2 -> ${item} 
-          - [1, 1] # 1 -> ${1}; 1 -> ${2}; 3 -> ${item} 
+      <pre>
+command: echo ${1} ${2} ${item} 
+vars: 
+  - [0, 0] # 0 -> ${1}; 0 -> ${2}; 0 -> ${item}
+  - [0, 1] # 0 -> ${1}; 1 -> ${2}; 1 -> ${item} 
+  - [1, 0] # 1 -> ${1}; 0 -> ${2}; 2 -> ${item} 
+  - [1, 1] # 1 -> ${1}; 1 -> ${2}; 3 -> ${item} </pre>
         
 4 k8s jobs will run to execute the commands.<br>
 For the 1st job, the command is:
-
-    echo 0 0 0 
-
+<pre>
+echo 0 0 0 
+</pre>
 For the 2nd job, the command is: 
-
-    echo 0 1 1 
-    
+<pre>
+echo 0 1 1 
+</pre>    
 For the 3rd job, the command is:
-
-    echo 1 0 2 
-    
+<pre>
+echo 1 0 2 
+</pre>    
 For the 4th job, the command is: 
-
-    echo 1 1 3
-    
+<pre>
+echo 1 1 3
+</pre>    
 </td>
    </tr>
    <tr>
@@ -218,31 +226,35 @@ For the 4th job, the command is:
       <td>A two-dimensional array. VarsIter list all the possible parameters for every position in the command line. And we will use algorithm Of Full Permutation to generate all the permutation and combinations for these parameter that will be used to replace the ${n} variable.The first row member of the array replace the variable ${1} in the command, the second row member replace the variable ${2} in the command, and so on.
       
 For example,
+<pre>
+commandsIter:
+  command: sh /tmp/step1.splitfq.sh ${1} ${2} ${3}
+  varsIter: - ["sample1", "sample2"]
+            - [0, 1]
+            - [25]
+</pre>
+then the final command will be:
+<pre>
+sh /tmp/scripts/step1.splitfq.sh sample1 0 25 
+sh /tmp/scripts/step1.splitfq.sh sample2 0 25 
+sh /tmp/scripts/step1.splitfq.sh sample1 1 25 
+sh /tmp/scripts/step1.splitfq.sh sample2 1 25 
+</pre>
+If there are many array members per line, you can use the range function.  
+The format of range function:  
+<pre>range(start, end, step)</pre>
+ Start and end are all integer. And step can only be positive integer.   
+ If you do not specify step, the default is 1.
 
-      commandsIter:
-        command: sh /tmp/step1.splitfq.sh ${1} ${2} ${3}
-        varsIter: - ["sample1", "sample2"]
-                  - [0, 1]
-                  - [25]
-                  
-then the finalcommand will be:
-
-      sh /tmp/scripts/step1.splitfq.sh sample1 0 25 
-      sh /tmp/scripts/step1.splitfq.sh sample2 0 25 
-      sh /tmp/scripts/step1.splitfq.sh sample1 1 25 
-      sh /tmp/scripts/step1.splitfq.sh sample2 1 25 
-
-If there are many array members per line, you can use the range function.<br>The format of range function: range(start, end, step) Start and end are all integer. And step can only be positive integer. <br>
-If you do not specify step, the default is 1.
-
-Range(1, 4) represents array [1,2,3]
-
+Range(1, 4) represents array [1,2,3]  
 Range(1, 10, 2) represents array [1, 3, 5, 7, 9] 
-
-    varsIter: - range(0, 4) 
+<pre>
+varsIter: - range(0, 4)
+</pre> 
 the same as: 
-
-    varsIter: - [0, 1, 2, 3]
+<pre>
+varsIter: - [0, 1, 2, 3]
+</pre>
 </td>
    </tr>
 </table>
