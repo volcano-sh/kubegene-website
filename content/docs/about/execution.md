@@ -1,9 +1,8 @@
 +++
 title = "Execution Overview"
-description = "00000000000000000Quickly get running with your ML Workflow"
+description = "This page provides an overview of `Execution`, the smallest deployable object in the Kubegene object model."
 weight = 10
 toc = true
-bref = "======================================================="
 aliases = ["/docs/about/"]
 [menu.main]
   parent = "What is Kubegene?"
