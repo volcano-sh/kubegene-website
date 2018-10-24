@@ -80,8 +80,7 @@ commands:
   - sh /obs/shell/run-xxx/run.sh 1 a 
   - sh /obs/shell/run-xxx/run.sh 2 a 
   - sh /obs/shell/run-xxx/run.sh 1 b 
-  - sh /obs/shell/run-xxx/run.sh 2 b </pre>
-Note 1: One of field commands and commandsIter must be set. Use commandsIter if the commands need to pass variables, otherwise use commands.
+  - sh /obs/shell/run-xxx/run.sh 2 b </pre>Note 1: One of field commands and commandsIter must be set. Use commandsIter if the commands need to pass variables, otherwise use commands.
       </td>
    </tr>
    <tr>
