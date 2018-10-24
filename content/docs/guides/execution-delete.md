@@ -40,6 +40,4 @@ metadata:
 When want to clean up an execution, you only need to make one all to delete Execution(no need explicitly delete its dependents), the dependents will be deleted automatically by kubernetes. This is done by kubernetes [Garbage Collection](https://kubernetes.io/docs/concepts/workloads/controllers/garbage-collection/).
 
 
-{{< note >}}
 **Note:** The ownerReference is used to control the relationship between owner and dependents, do not update it unless you know what you do. Also donot delete/update the Execution dependents, especially when the execution is in `Running` phase.
-{{< /note >}}

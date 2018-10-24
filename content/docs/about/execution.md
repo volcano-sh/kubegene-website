@@ -18,7 +18,7 @@ You describe a batch of jobs in an Execution object to achieve a common goal(lik
 
 **Note:** You should not manage Jobs owned by an Execution. And currently we do not support modification of an existing Execution object.
 
-See [Creating an Execution](## Creating an Execution) for more information on how to create an Execution.
+See [Creating an Execution](#creating-an-execution) for more information on how to create an Execution.
 
 ## Creating an Execution
 
@@ -79,9 +79,7 @@ In this example:
 * The `dependents` filed defines which jobs to depend on. Can define multi-dependents.
 * The `image` field defines the image used by the group of jobs.
 
-{{< note >}}
   **Note:** `tasks` is an array of tasks. Each one is consisted of one or multi similar jobs which use same image and require same resources.
-{{< /note >}}
 
 Next, run `kubectl get executions`. The output is similar to the following:
 

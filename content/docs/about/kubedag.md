@@ -22,9 +22,9 @@ The project is committed to the following design ideals:
 * Flexible control. You can limit any reousrce requirement, concurrently running jobs, and select nodes to run on.
 
 
-## Architecture
+## ArchitectureArchitecture
 
-Kubedag implements the workflow as [Execution](../execution.md) using [Kubernetes CRD](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions).
+Kubedag implements the workflow as [Execution](/docs/about/execution) using [Kubernetes CRD](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions).
 
 Kubedag consists of three main components:
 * Execution controller

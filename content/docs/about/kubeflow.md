@@ -8,9 +8,6 @@ aliases = ["/docs/", "/docs/about/", "/docs/kubeflow/"]
   parent = "What is Kubegene?"
   weight = 1
 +++
-## The Kubeflow test
-
-xuzhonghu
 
 ## The Kubeflow mission
 
