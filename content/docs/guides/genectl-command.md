@@ -1,4 +1,6 @@
 +++
+title = "genectl command overview"
+description = "Information on how to use genectl command"
 weight = 10
 toc = true
 bref= "command."
@@ -8,10 +10,9 @@ aliases = ["/docs/guides/"]
   weight = 1
 +++
 
-# Overview
 genectl is a command line interface for running commands against Kubegene. You can use genectl to submit your workflow and query the status of workflow execution.   
 
-# genectl sub
+## **genectl sub**
 submit gene sequencing workflow to kube-dag controller to execute. 
 
 It contains three subcommand:
@@ -21,7 +22,7 @@ genectl sub job
 genectl sub repjob
 genectl sub workflow
 ```
-## Global flags
+### Global flags
 
 | Flags               | Required | Description                                                                                                       |
 |---------------------|----------|-------------------------------------------------------------------------------------------------------------------|
@@ -29,14 +30,14 @@ genectl sub workflow
 | --tool-repo string  | Yes      | directory or URL to tool repository, if it is a URL, it must point to tool file. (default "/root/kubegene/tools") |
 | --dry-run           | No       | If true, display instantiate execution but do not submit                                                               |
 
-# genectl sub job
+## **genectl sub job**
 sub job command submits a job which execute a single shell script when perform gene sequencing. You should upload the shell script and sample data to the volume used by this job in preparation stage. 
 
-## Usage
-genectl sub job FILENAME [flags]
+### Usage
+genectl sub job FILENAME [flags]  
 The args FILENAME is the absolute path of the shell script within the container.
 
-## Flags
+### Flags
 | Flags               | Required | Description                                                                                                                                         |
 |---------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
 | --cpu string        | No       | cpu resource required to run this job, default 1 (default "1")                                                                                      |
@@ -46,12 +47,14 @@ The args FILENAME is the absolute path of the shell script within the container.
 | --shell string      | No       | linux shell used to execute the job script, default sh.                                                                                             |
 | --tool string       | Yes      | tool used by the job, format: toolName:toolVersion                                                                                                  |
 
-## example
+### example
 ```
 genectl sub job /kubegene/bwa_help.sh --memory 1g --cpu 1 --tool bwa:0.7.12 --pvc pvc-gene
 ```
-# genectl sub repjob
+## **genectl sub repjob**
 sub repjob command submits a group of job.   
+## Usage
+genectl sub repjob FILENAME [flags]  
 The args[0] FILENAME is the absolute path of the shell script within the container. And every line in the shell script is a single job and it follow the format:
 ```
 	bash/sh             scriptPath                args...
@@ -73,7 +76,7 @@ the content of bwa_mem_work.sh:
 ```
 And the script path in your host should keep consistent with the path within the container. You should upload all the shell script and sample data that will be used to the storage volume used by this job.
 
-## Flags
+### Flags
 | Flags               | Required | Description                                                                                                                                         |
 |---------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
 | --cpu string        | No       | cpu resource required to run this job, default 1                                                                                                    |
@@ -83,13 +86,13 @@ And the script path in your host should keep consistent with the path within the
 | --shell string      | No       | linux shell used to execute the job script, default sh (default "sh")                                                                               |
 | --tool string       | Yes      | tool used by the job, format: toolName:toolVersion                                                                                                  |
 
-## example
+### example
 ```
 genectl sub repjob /kubegene/bwa_mem_work.sh --memory 1g --cpu 1 --tool bwa:0.7.12 --pvc pvc-gene
 ```
-# genectl sub workflow
+## **genectl sub workflow**
 Submit a workflow from a file with specify input json.
-## Usage
+### Usage
 genectl sub workflow FILENAME [flag]
 
 | Flags          | Required | Description                                                                                                                                                                                                                                  |
@@ -97,11 +100,11 @@ genectl sub workflow FILENAME [flag]
 | --input string | No       | the input json file path. If you do not want to use the input fields defined by the workflow YAML file, you can specify a json file to override this field here. When using a new sample, you can define a new sample name in the json file. |
 
 
-## example
+### example
 ```
 gcs sub workflow wf.yaml --input UserInputs.json
 ```
-## built-in variable in input json
+### built-in variable in input json
 When executing a certain workflow, kugegene will create several k8s job to do the work. If you want to balance node resource usage in the cluster or want to constrain the pod of job to only be able to run on particular nodes or to prefer to run on particular node, you can use built-in variable in input json to specify parameters to control the behavior when workflow is running. All of them are optional, if not specified, it will use the default value.
 
 apiv1 "k8s.io/api/core/v1"
@@ -185,32 +188,32 @@ A full example
 }
 ```
 
-# genectl describe 
+## **genectl describe** 
 Query the detail execution status of a workflow.
-## Usage
+### Usage
 genectl describe executionName [flags]
-## Flags
+### Flags
 | Flags              | Required | Description                               |
 |--------------------|----------|-------------------------------------------|
 | --namespace string | No       | namespace of execution(default "default") |
 
-## example
+### example
 ```
 genectl describe my-exec –n gene-system
 ```
 
-# genectl get
+## **genectl get**
 Query one or a list of execution status of workflows.
-## Usage
+### Usage
 genectl get [flags]
-## Flags
+### Flags
 | Flags              | Required | Description                                                                                                                                               |
 |--------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --namespace string | No       | namespace of execution(default "default")                                                                                                                 |
 | --phase strings    | No       | A comma-separated list for workflow execution phase. Available values: [Running Succeeded Failed Error]. This flag unset means 'list all phase execution' |
 | --all-namespaces   | No       | If present, list execution across all namespaces.                                                                                                         |
 
-## example
+### example
 List executions in default namespace and in default output format.
 ```
 genectl get execution
@@ -231,16 +234,16 @@ List executions in exec-system namespace that are running or succeeded in yaml o
 ```		
 genectl get execution -n exec-system –phase Running,Succeeded
 ```
-# genectl del 
+## **genectl del** 
 delete an execution of workflow
-## Usage
+### Usage
 genectl del executionName [flags]
-## Flags
+### Flags
 | Flags              | Required | Description                               |
 |--------------------|----------|-------------------------------------------|
 | --namespace string | No       | namespace of execution(default "default") |
 
-## example
+### example
 ```
 genectl del my-exec –n gene-system
 ```

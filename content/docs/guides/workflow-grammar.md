@@ -1,22 +1,125 @@
 +++
-title = "workflow"
-description = "workflow"
+title = "workflow grammar"
+description = "Information on how to use and write workflow"
 weight = 10
 toc = true
-bref= "workflow grammar."
+bref= "command."
 aliases = ["/docs/guides/"]
 [menu.main]
   parent = "Guides"
   weight = 1
 +++
 
+We have defined a complete set of gene sequencing workflow grammars. It keeps the user's traditional usage habit as much as possible. It requires a very low learning cost to learn how to write and use the workflow. If you have other type workflow grammar files, you need to convert them to the gene container syntax first.
 
-# Workflow
+## **Template structure**
+
+| field    | required | type   | description                                                                                                        |
+|----------|----------|--------|--------------------------------------------------------------------------------------------------------------------|
+| version  | Yes      | string | The version of workflow                                                                                            |
+| inputs   | No       | Map    | The variable of the workflow. You can define multiple, set the actual values of these variables at execution time. |
+| workflow | Yes      | Map    | Define the steps in the workflow and the dependencies between the steps.                                           |
+| volumes  | No       | Map    | Define the used claim and mount path of the shared storage for the workflow steps.                                 |
+
+
+
+## **workflow example**
+
+```
+version: genecontainer_0_1
+inputs: # workflow variant
+  sample: # variant name
+    default: sample1
+    type: string
+    description: variant description
+workflow:
+  test-job-a:
+    tool: busybox:latest
+    resources:
+      memory: 4G
+      cpu: 4C
+    commandsIter:
+      command: sleep 10; touch /result/test-job/${sample}.${item}.${1}.txt 
+      vars_iter:
+        - [0,1]
+  test-job-b:
+    tool: busybox:latest
+    resources:
+      memory: 4G
+      cpu: 4C
+    commands:
+      - sleep 10; touch /result/test-job/${sample}.job-b.txt
+    depends:
+      - target: test-job-a
+volumes: 
+  genobs:
+    mountPath: /result
+    mountFrom:
+      pvc: test-pvc # claimName
+```
+
+## **version**
+
+The version of gene workflow, the current support is genecontainer_0_1.
+
+## **inputs**
+
+Optional. Used to define the variable of the gene sequencing process. Inputs consists of multiple variables, up to 60 variables can be defined, and each variable name is unique. If the variable name is repeated, the latter definition will override the previously defined one. Variables can be referenced in other parts of the workflow file, using the shell script format, ie: ${var}, where var is the variable name.
+
+
+### inputs format
+
+```
+inputs:
+  <var name>:
+    type: <type>
+    default: <default value>
+    value: <value>
+    description：<description>
+```
+
+### Field
+
+| Field       | required | type        | description                                                                                                                                                                                                        |
+|-------------|----------|-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| var name    | Yes      | String      | The var name consists of letters, numbers, and underscores "-" or underscores "_" with a length of [1, 20].                                                                                                        |
+| type        | Yes      | String      | Parameter type, allowed type is as follows:<br> <ul><li>string</li> <li>number</li> <li>bool</li> <li>array</li> </ul>The default type is “string” if not specified.                                                                                              |
+| default     | No       | interface{} | The default value of the parameter, fill in the corresponding value according to type. Note：the type of default and value must be consistent with the type field.                                                  |
+| value       | No       | interface{} | Value is the literal value to use for the parameter. The value can be overwrite by an external input.Precedence: external input value > default. Note: one of external input, value and default must be specified. |
+| description | No       | String      | Parameter description information, must be no more than 255 characters.                                                                                                                                         |
+
+### Inputs example
+
+```
+inputs:
+  sample:
+    type: string
+    default: /home/root
+  split:
+    default: 3
+    type: number
+description: parallel number
+chromlist:
+  default:
+    - 'chr1:10000-103863906'
+    - 'chr1:103913906-205922707'
+    - 'chr1:206072707-249240621'
+    - 'chr2:10000-87668206'
+    - 'chr2:87718206-149690582'
+    - 'chr2:149790582-243189373'
+    - 'chr3:10000-90504854'
+   type: array
+flag:
+  value: true
+  type: bool
+```
+
+## **Workflow**
 
 Required. Define the tasks involved in the process and the dependencies between the tasks.   
 A workflow consists of multiple steps, each of which can perform a specific task.
 
-## workflow format
+### workflow format
 
 ```
 workflow:
@@ -29,9 +132,9 @@ workflow:
     depends：< dependent task>
 ```
 
-## Field
+### Field
 
-### workflow field
+#### workflow field
 
 <table>
    <tr>
@@ -101,7 +204,7 @@ commands:
    </tr>
 </table>
 
-### resource field description
+#### resource field description
 
 <table>
    <tr>
@@ -136,7 +239,7 @@ commands:
 </table>
 
 
-### commandsIter field description
+#### commandsIter field description
 
 <table>
    <tr>
@@ -187,8 +290,8 @@ Then the final command will be:
       <ul>
       <li>
       In the two-dimensional array, the members of each row represent the variables   
-      `${1}`, `${2}`, `${3}` in the command. `${1}` represents the first member of each line.   
-      `${2}` represents the second member of each line. And `${3}` represents the third   
+      ${1} ${2} ${3} in the command. ${1} represents the first member of each line.   
+      ${2} represents the second member of each line. And ${3} represents the third   
       member of each line.
       </li>
       <li>
@@ -259,8 +362,7 @@ Range(1, 4) represents array [1,2,3]
 Range(1, 10, 2) represents array [1, 3, 5, 7, 9] 
 <pre>
 varsIter: - range(0, 4)
-</pre> 
-the same as: 
+</pre>the same as: 
 <pre>
 varsIter: - [0, 1, 2, 3]
 </pre>
@@ -268,7 +370,7 @@ varsIter: - [0, 1, 2, 3]
    </tr>
 </table>
 
-### **Depends field description**
+#### **Depends field description**
 
 <table>
    <tr>
@@ -345,4 +447,72 @@ workflow:
       - target: job-a
         type: iterate
       - target: job-b
+```
+
+## **volumes**
+
+Optional, information about volume that required gene sequencing process required, such as mount path in container, pvc name and so on. You can specify multiple volumes.
+
+### Volumes format
+
+```
+volumes: 
+  <volume name>:
+    mountPath: <mountPath>
+    mountFrom: <pvc info>
+```
+
+### field
+
+<table>
+   <tr>
+      <td>field</td>
+      <td>required</td>
+      <td>type</td>
+      <td>description</td>
+   </tr>
+   <tr>
+      <td>mountPath</td>
+      <td>Yes</td>
+      <td>string</td>
+      <td>Path within the container at which the volume should be mounted. Must not contain ':'.</td>
+   </tr>
+   <tr>
+      <td>mountFrom</td>
+      <td>Yes</td>
+      <td>struct</td>
+      <td>Detail info about volume</td>
+   </tr>
+</table>
+
+
+mountFrom field description
+
+<table>
+   <tr>
+      <td>field</td>
+      <td>required</td>
+      <td>type</td>
+      <td>description</td>
+   </tr>
+   <tr>
+      <td>pvc</td>
+      <td>Yes</td>
+      <td>string</td>
+      <td>The pvc name. Note: the specified pvc must exist in the cluster.</td>
+   </tr>
+</table>
+
+
+### volumes example
+```
+volumes:
+  genref:
+    mountPath: ${volume-path-ref}
+    mountFrom:
+      pvc: ${my_k8s_pvc}
+  genobs:
+    mountPath: /volume-path-obs
+    mountFrom:
+      pvc: sample-data-pvc
 ```
