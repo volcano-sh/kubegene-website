@@ -1,3 +1,17 @@
++++
+title = "Glossary"
+description = "Glossary"
+weight = 10
+toc = true
+bref= "workflow grammar."
+aliases = ["/docs/guides/"]
+[menu.main]
+  parent = "Guides"
+  weight = 1
++++
+
+
+
 # Workflow
 Definition of the gene sequencing process. The gene sequencing workflow includes the execution sequence information and the tools required for the sequencing process and the input data. The workflow consists of at least one tool. Each subtask in the workflow forms a data stream by its sequential relationship, and the pre-order subtask provides input for the subsequent subtask.
 
