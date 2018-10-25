@@ -334,8 +334,8 @@ echo 1 1 3
       <td>array[array]</td>
       <td>A two-dimensional array. VarsIter list all the possible parameters for every position   
       in the command line. And we will use algorithm Of Full Permutation to generate all the   
-      permutation and combinations for these parameter that will be used to replace the ${n}   
-      variable. The first row member of the array replace the variable ${1} in the command,   
+      permutation and combinations for these parameter that will be used to replace the ${n} variable.   
+      The first row member of the array replace the variable ${1} in the command,   
       the second row member replace the variable ${2} in the command, and so on.  
       For example,
 <pre>
