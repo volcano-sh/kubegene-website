@@ -53,7 +53,7 @@ genectl sub job /kubegene/bwa_help.sh --memory 1g --cpu 1 --tool bwa:0.7.12 --pv
 ```
 ## **genectl sub repjob**
 sub repjob command submits a group of job.   
-## Usage
+### Usage
 genectl sub repjob FILENAME [flags]  
 The args[0] FILENAME is the absolute path of the shell script within the container. And every line in the shell script is a single job and it follow the format:
 ```
