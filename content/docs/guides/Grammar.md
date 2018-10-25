@@ -1,3 +1,15 @@
++++
+title = "Grammar"
+description = "Grammar"
+weight = 10
+toc = true
+bref= "workflow grammar."
+aliases = ["/docs/guides/"]
+[menu.main]
+  parent = "Guides"
+  weight = 1
++++
+
 We have defined a complete set of gene sequencing workflow grammars. It keeps the user's traditional usage habit as much as possible. It requires a very low learning cost to learn how to write and use the workflow. If you have other type workflow grammar files, you need to convert them to the gene container syntax first.
 
 ### Template structure
