@@ -1,5 +1,4 @@
 +++
-description = "command"
 weight = 10
 toc = true
 bref= "command."
