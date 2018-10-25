@@ -1,3 +1,15 @@
++++
+title = "volumes"
+description = "volumes"
+weight = 10
+toc = true
+bref= "volumes grammar."
+aliases = ["/docs/guides/"]
+[menu.main]
+  parent = "Guides"
+  weight = 1
++++
+
 # volumes
 
 Optional, information about volume that required gene sequencing process required, such as mount path in container, pvc name and so on. You can specify multiple volumes.
