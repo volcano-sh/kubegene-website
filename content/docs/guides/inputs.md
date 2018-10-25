@@ -1,3 +1,18 @@
++++
+title = "inputs"
+description = "inputs"
+weight = 10
+toc = true
+bref= "inputs grammar."
+aliases = ["/docs/guides/"]
+[menu.main]
+  parent = "Guides"
+  weight = 1
++++
+
+
+
+
 # inputs
 
 Optional. Used to define the variable of the gene sequencing process. Inputs consists of multiple variables, up to 60 variables can be defined, and each variable name is unique. If the variable name is repeated, the latter definition will override the previously defined one. Variables can be referenced in other parts of the workflow file, using the shell script format, ie: ${var}, where var is the variable name.
