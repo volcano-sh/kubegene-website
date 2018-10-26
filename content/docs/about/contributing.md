@@ -1,311 +1,136 @@
 +++
-title =  "Contributing to Kubeflow"
-description = "Information on how to start contributing to Kubeflow"
+title = "Contributing to Kubegene"
 weight = 10
 toc = true
-bref = "Welcome to the Kubeflow project! "
-aliases = ["/docs/contributing/"]
+aliases = ["/docs/about/"]
 [menu.main]
   parent = "What is Kubegene?"
-  weight = 3
+  weight = 4
 +++
-## Getting started as a Kubeflow contributor
 
-This document is the single source of truth for how to contribute to the code base.
-We'd love to accept your patches and contributions to this project. There are
-just a few small guidelines you need to follow.
+The following sections outline the process all changes to the Kubegene
+repositories go through.
 
-### Sign the CLA
+- [Working groups](#working-groups)
+- [Contributor license agreements](#contributor-license-agreements)
+- [Design documents](#design-documents)
+- [Contributing a feature](#contributing-a-feature)
+- [Setting up to contribute to Kubegene](#setting-up-to-contribute-to-kubegene)
+- [Pull requests](#pull-requests)
+- [Issues](#issues)
 
-Contributions to this project must be accompanied by a Contributor License
-Agreement. You (or your employer) retain the copyright to your contribution,
-this simply gives us permission to use and redistribute your contributions as
-part of the project. Head over to <https://cla.developers.google.com/> to see
-your current agreements on file or to sign a new one.
+## Working groups
 
-You generally only need to submit a CLA once, so if you've already submitted one
-(even if it was for a different project), you probably don't need to do it
-again.
+The Kubegene community is organized into a set of working groups.
+Any contribution to Kubegene should be started by first engaging with the appropriate working group.
 
-### Follow the code of conduct
+## Contributor license agreements
 
-Please make sure to read and observe our [Code of Conduct](https://github.com/kubeflow/community/blob/master/CODE_OF_CONDUCT.md).
+We'd love to accept your contributions! But before we can take them, you will have
+to fill out the [Google CLA](https://cla.developers.google.com).
 
-### Consider participating in Kubeflow user research
+Once you are CLA'ed, we'll be able to accept your pull requests. This is
+necessary because you own the copyright to your changes, even after your
+contribution becomes part of this project. So this agreement simply gives Google
+permission to use and redistribute your contributions as part of the project.
 
-Maggie Lynn, a user experience researcher, is conducting user studies to inform future developments for Kubeflow. These typically involve a one hour study session conducted online with a thank you gift for providing your feedback. As a member of the Kubeflow community, your feedback and expertise are extremely valuable to us, so if you have time in the next month, please consider participating. To gather your interest, availability, and some basic information about you, please fill out this form where you’ll find out more details about this research opportunity: [https://goo.gl/forms/sv5sRo3UfsgeUEjK2](https://goo.gl/forms/sv5sRo3UfsgeUEjK2)
+## Design documents
 
-## Joining the community
+Any substantial design deserves a design document. Design documents are written with Google Docs and
+should be shared with the community by adding the doc to our [Team Drive](TBD)
+and sending a note to the appropriate working group to let people know the doc is there. To get write access
+to the drive, you'll need to be a [member](ROLES.md#member) of the Kubegene organization.
 
-Follow these instructions if you want to
+Anybody can access the team drive for reading and commenting. To get access simply join the
+[kubegene-team-drive-access@](TBD) group.
+Once you've done that, head to Team Drive and
+behold all the docs.
 
-* Become a member of the Kubeflow GitHub org (so you can trigger tests)
-* Become part of the Kubeflow build cop or release teams
-* Be recognized as an individual or organization contributing to Kubeflow
+## Contributing a feature
 
-### Individual contributors
+In order to contribute a feature to Kubegene you'll need to go through the following steps:
 
-Please send a PR adding yourself to 
-[members](https://github.com/kubeflow/community/blob/master/members.yaml).
+- Discuss your idea with the appropriate working groups on the working
+group's mailing list.
 
-  * The only **required** field is your GitHub username.
-  * This is a **prerequisite** for joining the Kubeflow org on GitHub.
+- Once there is general agreement that the feature is useful, create a GitHub issue to track the discussion. The issue should include information
+about the requirements and use cases that it is trying to address. Include a discussion of the proposed design and technical details of the
+implementation in the issue.
 
-### Companies/organizations
+- If the feature is substantial enough:
 
-If you would like your company or organization to be acknowledged for contributing to
-Kubeflow or participatng in the community (being a user counts) please send a PR
-adding the relevant info to
-[member_organizations.yaml](https://github.com/kubeflow/community/blob/master/member_organizations.yaml).
+  - Working group leads will ask for a design document as outlined in the previous section.
+  Create the design document and add a link to it in the GitHub issue. Don't forget to send a note to the
+  working group to let everyone know your document is ready for review.
 
-### Community discussions
+  - Depending of the breath of the design and how contentious it is, the working group leads may decide
+  the feature needs to be discussed in one or more working group meetings before being approved.
 
-There are many ways to contribute! Join one of our communication channels, 
-attend a community meeting, get to know the community. Read the details in
-our [community guide](/docs/about/community).
+  - Once the major technical issues are resolved and agreed upon, post a note to the working group's mailing
+  list with the design decision and the general execution plan.
 
-## Your first contribution
+- Submit PRs to [kubegene/kubegene](https://github.com/kubegene/kubegene) with your code changes.
 
-### Find something to work on
+- Submit PRs to [kubegene/docs](https://github.com/kubegene/docs) with
+documentation for your feature, including usage examples when possible.
 
-Help is always welcome! For example, documentation (like the text you are reading
-now) can always use improvement. There's always code that can be clarified and
-variables or functions that can be renamed or commented. There's always a need
-for more test coverage. You get the idea - if you ever see something you think
-should be fixed, you should own it. Here is how you get started.
+> Note that we prefer bite-sized PRs instead of giant monster PRs. It's therefore preferable if you
+can introduce large features in smaller reviewable changes that build on top of one another.
 
-### Starter issues
+If you would like to skip the process of submitting an issue and
+instead would prefer to just submit a pull request with your desired
+code changes then that's fine. But keep in mind that there is no guarantee
+of it being accepted and so it is usually best to get agreement on the
+idea/design before time is spent coding it. However, sometimes seeing the
+exact code change can help focus discussions, so the choice is up to you.
 
-To find Kubeflow issues that make good entry points, look at the following tags:
+## Setting up to contribute to Kubegene
 
-* [`good first issue`](https://github.com/kubeflow/kubeflow/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
-* [`help wanted`](https://github.com/kubeflow/kubeflow/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)
+Check out this [README](https://github.com/kubegene/kubegene/blob/master/README.md) to learn about
+the Kubegene source base and setting up your development environment.
 
-## Owners files and PR workflow
+## Pull requests
 
-Our PR workflow is nearly identical to Kubernetes'. Most of these instructions are a
-modified version of Kubernetes' [contributors](https://github.com/kubernetes/community/blob/master/contributors/guide/README.md)
-and [owners](https://github.com/kubernetes/community/blob/master/contributors/guide/owners.md#code-review-using-owners-files)
-guides.
+If you're working on an existing issue, simply respond to the issue and express
+interest in working on it. This helps other people know that the issue is
+active, and hopefully prevents duplicated efforts.
 
-### Overview of OWNERS files
+To submit a proposed change:
 
-OWNERS files are used to designate responsibility over different parts of the Kubeflow codebase.
-Today, we use them to assign the **reviewer** and **approver** roles used in our two-phase code
-review process. Our OWNERS files were inspired by [Chromium OWNERS
-files](https://chromium.googlesource.com/chromium/src/+/master/docs/code_reviews.md), which in turn
-inspired [GitHub's CODEOWNERS files](https://help.github.com/articles/about-codeowners/).
+- Fork the affected repository.
 
-The velocity of a project that uses code review is limited by the number of people capable of
-reviewing code. The quality of a person's code review is limited by their familiarity with the code
-under review. Our goal is to address both of these concerns through the prudent use and maintenance
-of OWNERS files
+- Create a new branch for your changes.
 
-### OWNERS  <a name="owners-1"></a>
+- Develop the code/fix.
 
-Each directory that contains a unit of independent code or content may also contain an OWNERS file.
-This file applies to everything within the directory, including the OWNERS file itself, sibling
-files, and child directories.
+- Add new test cases. In the case of a bug fix, the tests should fail
+  without your code changes. For new features try to cover as many
+  variants as reasonably possible.
 
-OWNERS files are in YAML format and support the following keys:
+- Modify the documentation as necessary.
 
-- `approvers`: a list of GitHub usernames or aliases that can `/approve` a PR
-- `labels`: a list of GitHub labels to automatically apply to a PR
-- `options`: a map of options for how to interpret this OWNERS file, currently only one:
-  - `no_parent_owners`: defaults to `false` if not present; if `true`, exclude parent OWNERS files.
-    Allows the use case where `a/deep/nested/OWNERS` file prevents `a/OWNERS` file from having any
-    effect on `a/deep/nested/bit/of/code`
-- `reviewers`: a list of GitHub usernames or aliases that are good candidates to `/lgtm` a PR
-
-All users are expected to be assignable. In GitHub terms, this means they are either collaborators
-of the repo, or members of the organization to which the repo belongs.
-
-A typical OWNERS file looks like:
-
-```
-approvers:
-  - alice
-  - bob     # this is a comment
-reviewers:
-  - alice
-  - carol   # this is another comment
-  - sig-foo # this is an alias
-```
-
-#### OWNERS_ALIASES
-
-Each repo may contain at its root an OWNERS_ALIAS file.
-
-OWNERS_ALIAS files are in YAML format and support the following keys:
-
-- `aliases`: a mapping of alias name to a list of GitHub usernames
-
-We use aliases for groups instead of GitHub Teams, because changes to GitHub Teams are not
-publicly auditable.
-
-A sample OWNERS_ALIASES file looks like:
-
-```
-aliases:
-  sig-foo:
-    - david
-    - erin
-  sig-bar:
-    - bob
-    - frank
-```
-
-GitHub usernames and aliases listed in OWNERS files are case-insensitive.
-
-### The code review process
-
-- The **author** submits a PR
-- Phase 0: Automation suggests **reviewers** and **approvers** for the PR
-  - Determine the set of OWNERS files nearest to the code being changed
-  - Choose at least two suggested **reviewers**, trying to find a unique reviewer for every leaf
-    OWNERS file, and request their reviews on the PR
-  - Choose suggested **approvers**, one from each OWNERS file, and list them in a comment on the PR
-- Phase 1: Humans review the PR
-  - **Reviewers** look for general code quality, correctness, sane software engineering, style, etc.
-  - Anyone in the organization can act as a **reviewer** with the exception of the individual who
-    opened the PR
-  - If the code changes look good to them, a **reviewer** types `/lgtm` in a PR comment or review;
-    if they change their mind, they `/lgtm cancel`
-  - Once a **reviewer** has `/lgtm`'ed, [prow](https://prow.k8s.io)
-    ([@k8s-ci-robot](https://github.com/k8s-ci-robot/)) applies an `lgtm` label to the PR
-- Phase 2: Humans approve the PR
-  - The PR **author** `/assign`'s all suggested **approvers** to the PR, and optionally notifies
-    them (eg: "pinging @foo for approval")
-  - Only people listed in the relevant OWNERS files, either directly or through an alias, can act
-    as **approvers**, including the individual who opened the PR
-  - **Approvers** look for holistic acceptance criteria, including dependencies with other features,
-    forwards/backwards compatibility, API and flag definitions, etc
-  - If the code changes look good to them, an **approver** types `/approve` in a PR comment or
-    review; if they change their mind, they `/approve cancel`
-  - [prow](https://prow.k8s.io) ([@k8s-ci-robot](https://github.com/k8s-ci-robot/)) updates its
-    comment in the PR to indicate which **approvers** still need to approve
-  - Once all **approvers** (one from each of the previously identified OWNERS files) have approved,
-    [prow](https://prow.k8s.io) ([@k8s-ci-robot](https://github.com/k8s-ci-robot/)) applies an
-    `approved` label
-- Phase 3: Automation merges the PR:
-
-  - If all of the following are true:
-
-      - All required labels are present (eg: `lgtm`, `approved`)
-      - Any blocking labels are missing (eg: there is no `do-not-merge/hold`, `needs-rebase`)
-
-  - And if any of the following are true:
-
-      - there are no presubmit prow jobs configured for this repo
-      - there are presubmit prow jobs configured for this repo, and they all pass after automatically
-        being re-run one last time
-
-  - Then the PR will automatically be merged
-
-### Quirks of the process
-
-There are a number of behaviors we've observed that while _possible_ are discouraged, as they go
-against the intent of this review process.  Some of these could be prevented in the future, but this
-is the state of today.
-
-- An **approver**'s `/lgtm` is simultaneously interpreted as an `/approve`
-  - While a convenient shortcut for some, it can be surprising that the same command is interpreted
-    in one of two ways depending on who the commenter is
-  - Instead, explicitly write out `/lgtm` and `/approve` to help observers, or save the `/lgtm` for
-    a **reviewer**
-  - This goes against the idea of having at least two sets of eyes on a PR, and may be a sign that
-    there are too few **reviewers** (who aren't also **approver**)
-- Technically, anyone who is a member of the Kubeflow GitHub organization can drive-by `/lgtm` a
-  PR
-  - Drive-by reviews from non-members are encouraged as a way of demonstrating experience and
-    intent to become a collaborator or reviewer
-  - Drive-by `/lgtm`'s from members may be a sign that our OWNERS files are too small, or that the
-    existing **reviewers** are too unresponsive
-  - This goes against the idea of specifying **reviewers** in the first place, to ensure that
-    **author** is getting actionable feedback from people knowledgeable with the code
-- **Reviewers**, and **approvers** are unresponsive
-  - This causes a lot of frustration for **authors** who often have little visibility into why their
-    PR is being ignored
-  - Many **reviewers** and **approvers** are so overloaded by GitHub notifications that @mention'ing
-    is unlikely to get a quick response
-  - If an **author** `/assign`'s a PR, **reviewers** and **approvers** will be made aware of it on
-    their [PR dashboard](https://k8s-gubernator.appspot.com/pr)
-  - An **author** can work around this by manually reading the relevant OWNERS files,
-    `/unassign`'ing unresponsive individuals, and `/assign`'ing others
-  - This is a sign that our OWNERS files are stale; pruning the **reviewers** and **approvers** lists
-    would help with this
-- **Authors** are unresponsive
-  - This costs a tremendous amount of attention as context for an individual PR is lost over time
-  - This hurts the project in general as its general noise level increases over time
-  - Instead, close PR's that are untouched after too long (we currently have a bot do this after 90
-    days)
-
-## Automation using OWNERS files
-
-### [`prow`](https://git.k8s.io/test-infra/prow)
-
-Prow receives events from GitHub, and reacts to them. It is effectively stateless. The following
-pieces of prow are used to implement the code review process above.
-
-- [cmd: tide](https://git.k8s.io/test-infra/prow/cmd/tide)
-  - per-repo configuration:
-    - `labels`: list of labels required to be present for merge (eg: `lgtm`)
-    - `missingLabels`: list of labels required to be missing for merge (eg: `do-not-merge/hold`)
-    - `reviewApprovedRequired`: defaults to `false`; when true, require that there must be at least
-      one [approved pull request review](https://help.github.com/articles/about-pull-request-reviews/)
-      present for merge
-    - `merge_method`: defaults to `merge`; when `squash` or `rebase`, use that merge method instead
-      when clicking a PR's merge button
-  - merges PR's once they meet the appropriate criteria as configured above
-  - if there are any presubmit prow jobs for the repo the PR is against, they will be re-run one
-    final time just prior to merge
-- [plugin: assign](https://git.k8s.io/test-infra/prow/plugins/assign)
-  - assigns GitHub users in response to `/assign` comments on a PR
-  - unassigns GitHub users in response to `/unassign` comments on a PR
-- [plugin: approve](https://git.k8s.io/test-infra/prow/plugins/assign)
-  - per-repo configuration:
-    - `issue_required`: defaults to `false`; when `true`, require that the PR description link to
-      an issue, or that at least one **approver** issues a `/approve no-isse`
-    - `implicit_self_approve`: defaults to `false`; when `true`, if the PR author is in relevant
-      OWNERS files, act as if they have implicitly `/approve`'d
-  - adds the  `approved` label once an **approver** for each of the required
-    OWNERS files has `/approve`'d
-  - comments as required OWNERS files are satisfied
-  - removes outdated approval status comments
-- [plugin: blunderbuss](https://git.k8s.io/test-infra/prow/plugins/assign)
-  - determines **reviewers** and requests their reviews on PR's
-- [plugin: lgtm](https://git.k8s.io/test-infra/prow/plugins/lgtm)
-  - adds the `lgtm` label when a **reviewer** comments `/lgtm` on a PR
-  - the **PR author** may not `/lgtm` their own PR
-- [pkg: k8s.io/test-infra/prow/repoowners](https://git.k8s.io/test-infra/prow/repoowners/repoowners.go)
-  - parses OWNERS and OWNERS_ALIAS files
-  - if the `no_parent_owners` option is encountered, parent owners are excluded from having
-    any influence over files adjacent to or underneath of the current OWNERS file
-
-## Maintaining OWNERS files
-
-OWNERS files should be regularly maintained.
-
-We encourage people to self-nominate or self-remove from OWNERS files via PR's. Ideally in the future
-we could use metrics-driven automation to assist in this process.
-
-We should strive to:
-
-- grow the number of OWNERS files
-- add new people to OWNERS files
-- ensure OWNERS files only contain org members and repo collaborators
-- ensure OWNERS files only contain people are actively contributing to or reviewing the code they own
-- remove inactive people from OWNERS files
-
-Bad examples of OWNERS usage:
-
-- directories that lack OWNERS files, resulting in too many hitting root OWNERS
-- OWNERS files that have a single person as both approver and reviewer
-- OWNERS files that haven't been touched in over 6 months
-- OWNERS files that have non-collaborators present
-
-Good examples of OWNERS usage:
-
-- there are more `reviewers` than `approvers`
-- the `approvers` are not in the `reviewers` section
-- OWNERS files that are regularly updated (at least once per release)
+- Verify the entire CI process (building and testing) works.
+
+While there may be exceptions, the general rule is that all PRs should
+be 100% complete - meaning they should include all test cases and documentation
+changes related to the change.
+
+When ready, if you have not already done so, sign a
+[contributor license agreements](#contributor-license-agreements) and submit
+the PR.
+
+
+## Issues
+
+[GitHub issues](https://github.com/kubegene/kubegene/issues) can be used to report bugs or submit feature requests.
+
+When reporting a bug please include the following key pieces of information:
+
+- The version of the project you were using (e.g. version number,
+  or git commit)
+
+- Operating system you are using.
+
+- The exact, minimal, steps needed to reproduce the issue.
+  Submitting a 5 line script will get a much faster response from the team
+  than one that's hundreds of lines long.
