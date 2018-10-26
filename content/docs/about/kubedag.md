@@ -11,7 +11,7 @@ aliases = ["/docs/about/"]
 
 ## Overview
 
-Kubedag is a workflow engine on Kubernetes platform. It is dedicated to making Gene Sequencing workflow execute in container easily. Anywhere you are running Kubernetes, you should be able to run Kubeflow.
+Kubedag is a workflow engine on Kubernetes platform. It is dedicated to making Gene Sequencing workflow execute in container easily. Anywhere you are running Kubernetes, you should be able to run Kubegene.
 
 ## Goals
 
