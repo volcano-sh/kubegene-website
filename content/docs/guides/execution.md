@@ -6,7 +6,7 @@ toc = true
 aliases = ["/docs/guides/"]
 [menu.main]
   parent = "Guides"
-  weight = 1
+  weight = 4
 +++
 
 ## Before you begin

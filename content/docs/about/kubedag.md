@@ -6,7 +6,7 @@ toc = true
 aliases = ["/docs/about/"]
 [menu.main]
   parent = "What is Kubegene?"
-  weight = 1
+  weight = 2
 +++
 
 ## Overview

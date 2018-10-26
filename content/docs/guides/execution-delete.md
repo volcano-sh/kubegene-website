@@ -6,7 +6,7 @@ toc = true
 aliases = ["/docs/guides/"]
 [menu.main]
   parent = "Guides"
-  weight = 1
+  weight = 5
 +++
 
 ## Understanding cascading deletion

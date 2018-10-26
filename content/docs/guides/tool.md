@@ -1,5 +1,5 @@
 +++
-title = "Tool overview"
+title = "Tool Overview"
 description = "Information on how to use and write tool yaml"
 weight = 10
 toc = true
@@ -7,7 +7,7 @@ bref= "command."
 aliases = ["/docs/guides/"]
 [menu.main]
   parent = "Guides"
-  weight = 1
+  weight = 3
 +++
 
 ## Tool overview

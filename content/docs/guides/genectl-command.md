@@ -1,5 +1,5 @@
 +++
-title = "genectl command"
+title = "Genectl Command"
 description = "Information on how to use genectl command"
 weight = 10
 toc = true
@@ -7,7 +7,7 @@ bref= "command."
 aliases = ["/docs/guides/"]
 [menu.main]
   parent = "Guides"
-  weight = 1
+  weight = 2
 +++
 
 genectl is a command line interface for running commands against Kubegene. You can use genectl to submit your workflow and query the status of workflow execution.   
