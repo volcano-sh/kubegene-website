@@ -49,8 +49,45 @@ memory: 2G
 description: gatk
 ```
 
-## how to use tool
-When you use genectl to submit gene sequencing workflow, you can specify what tool to use, the format is: "toolName:toolVersion", and when the workflow is executing, it will use the real image to perform tht task.
+## How to use tool
+When you use genectl to submit gene sequencing workflow, you can specify what tool to use, the format is: "toolName:toolVersion", and when the workflow is executing, it will use the real image to perform tht task.  
+For example, when use `sub job` command,
+```
+genectl sub job /kubegene/bwa_help.sh --memory 1g --cpu 1 --tool bwa:0.7.12 --pvc pvc-gene
+```
+When use `sub workflow` command, the workflow will be:  
+
+```
+...
+  mergemappedbam:
+    tool: 'bwa:0.7.12'
+    resources:
+      memory: 1G
+    commands:
+      - >-
+        ls ${volume-path-tmp}/${sample}/${sample}.*.sort.bam >
+        ${volume-path-tmp}/${sample}/mergelist.txt
+    depends:
+      - target: bwamapping
+        type: whole
+  samflagstat:
+    tool: 'bwa:0.7.12'
+    resources:
+      memory: 1G
+    commands:
+      - >
+        samtools merge -f -@ ${nthread} -b
+        ${volume-path-tmp}/${sample}/mergelist.txt \
+
+        ${volume-path-tmp}/${sample}/${sample}.sort.bam && \
+
+        samtools flagstat ${volume-path-tmp}/${sample}/${sample}.sort.bam >
+        ${volume-path-tmp}/${sample}/${sample}.sort.flagstat
+    depends:
+      - target: mergemappedbam
+        type: whole
+...
+```
 
 ## Common tools
 
