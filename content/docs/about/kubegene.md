@@ -26,7 +26,7 @@ Kubegene which running on the kubernetes makes gene sequencing simple and easy. 
 
 ## Components of Kubegene
 
-Kugene has two main componments. Kbuedag is a workflow engine on Kubernetes platform.
+Kugene has two main componments. 
 
 * **Kubedag**. Kubedag is a DAG workflow engine on Kubernetes platform. It is dedicated to making Gene Sequencing workflow execute in container easily. For more information, you can see [Kugedag](https://kubegene.netlify.com/docs/about/kubedag/).
 
@@ -41,4 +41,4 @@ Definition of the gene sequencing process. The gene sequencing workflow includes
 A certain execution process of the gene sequencing workflow. When you submit a workflow, Kubegene will create a execution to execute the gene sequencing job. For more information, you can see [execution](https://kubegene.netlify.com/docs/about/execution/).
 
 ### Tool
-Software tools which genetic sequencing use. It is a mirrored package of bioinformatics software. The tools can be programmed into the workflow in series or independently.
+Software tools which genetic sequencing use. It is a mirrored package of bioinformatics software. The tools can be programmed into the workflow in series or independently. For more information, you can see [Tool](https://kubegene.netlify.com/docs/guides/tool/)
