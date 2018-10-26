@@ -258,7 +258,7 @@ There are two ways to define variables:
 <ul>
 <li>
 Variable parameters defined in commandsIter, including vars and varsIter parameters,  
- you can set one of them. The format is “${n}”, n is a positive integer starting at 1.   
+ you can set one of them. The format is "${n}", n is a positive integer starting at 1.   
  And it will be replaced by the nth element of vars. The vars needs to list all   
  combinations of parameter, and the varsIter is an automatic traversal combination of parameter.
 </li>
@@ -290,8 +290,8 @@ Then the final command will be:
       <ul>
       <li>
       In the two-dimensional array, the members of each row represent the variables   
-      ${1} ${2} ${3} in the command. <body>${1}</body> represents the first member of each line.   
-      ${2} represents the second member of each line. And ${3} represents the third   
+      "${1}", "${2}", "${3}" in the command. "${1}" represents the first member of each line.   
+      ${2} represents the second member of each line. And "${3}" represents the third   
       member of each line.
       </li>
       <li>
