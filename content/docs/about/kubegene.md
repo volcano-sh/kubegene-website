@@ -17,12 +17,11 @@ Kubegene which running on the kubernetes makes gene sequencing simple and easy. 
 
 * **Universal workflow design grammar**. Kubegene provides a complete set of gene sequencing workflow grammars which decouples with specific analysis tools. It requires a very low learning cost to learn how to write and use the workflow. You can easily migrate the gene sequencing business to kubegene.
 
+* **Tailor-made workflow for the biosequencing industry**. The workflow grammar is designed by comparing different genetic sequencing scenarios. It also keeps the user's traditional usage habit as much as possible and is closer to user scenarios.
+
 * **More efficient resource usage**. Kubegene uses container to run the gene sequencing business. Compared to traditional gene sequencing solutions using virtual machines, kubegene makes resource usage more efficient and avoiding resource idle . 
 
 * **Scaling based on demand**. kubernetes can automatically scale your cluster based on your gene sequencing workload by using Kubegene. Also you can easily scale the kubernetes cluster manually. It can save your production costs.
-
-* **Tailor-made workflow for the biosequencing industry**. The workflow grammar is designed by comparing different genetic sequencing scenarios. It also keeps the user's traditional usage habit as much as possible and is closer to user scenarios.
-
 
 ## Components of Kubegene
 
