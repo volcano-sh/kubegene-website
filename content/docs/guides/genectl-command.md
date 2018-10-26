@@ -1,5 +1,5 @@
 +++
-title = "genectl command overview"
+title = "genectl command"
 description = "Information on how to use genectl command"
 weight = 10
 toc = true
