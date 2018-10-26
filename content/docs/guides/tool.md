@@ -1,5 +1,5 @@
 +++
-title = "tool"
+title = "Tool overview"
 description = "Information on how to use and write tool yaml"
 weight = 10
 toc = true
