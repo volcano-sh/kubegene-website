@@ -1,16 +1,16 @@
 +++
-title = "Minikube for Kubeflow"
-description = "Quickly get Kubeflow running locally"
+title = "Minikube for Kubegene"
+description = "Quickly get Kubegene running locally"
 weight = 10
 toc = true
-bref = "This document will outline steps that will get your local installation of Kubeflow running on top of Mikikube. Minikube runs a simple, single-node Kubernetes cluster inside a virtual machine (VM)."
+bref = "This document will outline steps that will get your local installation of Kubegene running on top of Mikikube. Minikube runs a simple, single-node Kubernetes cluster inside a virtual machine (VM)."
 [menu.main]
   parent = "Getting Started"
   weight = 2
 +++
 
 By the end of this document, you'll have a local installation of Minikube kubernetes cluster along with all the default core components of
-Kubeflow deployed as services in the pods. You should be able to access JupyterHub notebooks, and the Kubeflow Dashboard.
+Kubeflow deployed as services in the pods. You can use genectl to submit your gene sequencing workflow to kubegene.
 
 ### Prerequisites
   - Laptop, Desktop or a Workstation
@@ -81,30 +81,6 @@ curl -Lo docker-machine-driver-kvm2 https://storage.googleapis.com/minikube/rele
 && sudo cp docker-machine-driver-kvm2 /usr/local/bin/ \
 && rm docker-machine-driver-kvm2
 ```
-
-### Quick Setup
-The following describes a script driven installation that you can use to deploy all
-the necessary components including `kubectl`, `minikube`, `kfctl` along with Kubeflow itself. The script requires input from you on some configuration information and then it drives the rest of the installation. Run the following to start the installation:
-```
-export KUBEFLOW_TAG=v0.3.0
-curl -O https://raw.githubusercontent.com/kubeflow/kubeflow/${KUBEFLOW_TAG}/scripts/setup-minikube.sh
-chmod +x setup-minikube.sh
-./setup-minikube.sh
-```
-**KUBEFLOW_TAG** is a tag corresponding to the version to checkout such as `v0.3.0` or `master`. 
-
-The script asks for some config input as shown below:
-![ConfigInputs](../ConfigInputs.png)
-
-Let us consider the example for CPUs configuration. When it asks `Assign CPUs between 3..10 [6]: ` the `3..10` suggest the range of CPU cores available based on your host machine. `[6]` is the suggested default. You can choose any value within the range and enter the value or just press enter to accept the default value suggested in square brackets. In the image above, we choose the default 6 for CPUs and specified 12GB of memory explicitly. Note that:
-
-  1. You will need to specify the virtualizer installed on the system explicitly and it needs to be one of the values provided as options.
-  1. If you don't want to mount any local directory into the JupyterHub simply press enter instead of specifying any path.
-
-After the configuration is complete, the script will continue execution for the next few minutes and when finished successfully should output some like:
-![LocalDeployment](../LocalDeployment.png)
-
-When the installation finishes successfully, you can access JupyterHub as described in [Where to go next](#where-to-go-next). If you have trouble with the installation script or run into errors, you can follow the detailed installation steps manually as described below.
 
 ### Install Kubectl
 
@@ -207,49 +183,6 @@ $ minikube delete
 $ minikube start --cpus 4 --memory 8096 --disk-size=40g
 ```
 
-### Installing Kubeflow using kfctl
-The following steps will deploy Kubeflow components and start them on the Minikube you created above.
-
-  1. Download Kubeflow source
-
-    ```
-    mkdir ${KUBEFLOW_SRC}
-    cd ${KUBEFLOW_SRC}
-    export KUBEFLOW_TAG=v0.3.0
-    curl https://raw.githubusercontent.com/kubeflow/kubeflow/${KUBEFLOW_TAG}/scripts/download.sh | bash
-    ```
-    - **KUBEFLOW_SRC** is the directory where you want to download the source
-    - **KUBEFLOW_TAG** is a tag corresponding to the version to checkout such as `v0.3.0`
-
-  1. Run the following to setup and deploy Kubeflow:
-    
-    ```
-    KUBEFLOW_REPO=${KUBEFLOW_SRC} ${KUBEFLOW_SRC}/scripts/kfctl.sh init ${KFAPP} --platform minikube
-    cd ${KFAPP}
-    ${KUBEFLOW_SRC}/scripts/kfctl.sh generate all
-    ${KUBEFLOW_SRC}/scripts/kfctl.sh apply all
-    ```
-    - **KFAPP** is the name of a directory to store your configs. This directory is created when you run init.  Please see [understanding the deployment process](/docs/started/getting-started-gke/#understanding-the-deployment-process) for more details.
-
-The above installation may take a few minutes. At the end of the installation you should see:
-```
-Access Kubeflow dashboard at http://localhost:8080/
-Access JupyterHub at http://localhost:8080/hub/
-```
-
 ### Where to go next
-Now you can access the Kubeflow dashboard at http://localhost:8080/ and JupyterHub at http://localhost:8080/hub/.
-For JupyterHub, you'll be landing on a login page.
-
-  - Use any username and password to login
-  - Pick an available CPU tensorflow image
-  - Provide at least 2 CPUs
-  - Provide 4Gi for the memory
-  - Leave "Extra Resource Limits" alone for now
-  - Click Spawn.
-  - You should be redirected to a page that waits while the server is starting.
-
-If the page doesn't refresh, please see
-[troubleshooting](/docs/guides/troubleshooting/#problems-spawning-jupyter-pods).
 
 For further exploration refer to the [guide](/docs/guides/).
