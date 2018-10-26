@@ -290,7 +290,7 @@ Then the final command will be:
       <ul>
       <li>
       In the two-dimensional array, the members of each row represent the variables   
-      "${1}", "${2}", "${3}" in the command. "${1}" represents the first member of each line.   
+      <pre>"${1}"</pre>, <pre>"${2}"</pre>, "${3}" in the command. "${1}" represents the first member of each line.   
       ${2} represents the second member of each line. And "${3}" represents the third   
       member of each line.
       </li>
