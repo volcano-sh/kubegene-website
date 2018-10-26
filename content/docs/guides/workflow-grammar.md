@@ -1,6 +1,6 @@
 +++
-title = "workflow grammar"
-description = "Information on how to use and write workflow"
+title = "Workflow Grammar"
+description = "Information on how to use and write workflow yaml"
 weight = 10
 toc = true
 bref= "command."
@@ -516,6 +516,3 @@ volumes:
     mountFrom:
       pvc: sample-data-pvc
 ```
-
-
-${555} ${gggg}
