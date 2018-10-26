@@ -370,7 +370,7 @@ varsIter: - [0, 1, 2, 3]
    </tr>
 </table>
 
-#### **Depends field description**
+#### Depends field description
 
 <table>
    <tr>
