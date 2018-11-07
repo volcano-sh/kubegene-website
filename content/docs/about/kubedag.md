@@ -5,13 +5,13 @@ weight = 10
 toc = true
 aliases = ["/docs/about/"]
 [menu.main]
-  parent = "What is Kubegene?"
+  parent = "What is KubeGene?"
   weight = 2
 +++
 
 ## Overview
 
-Kubedag is a workflow engine on Kubernetes platform. It is dedicated to making Gene Sequencing workflow execute in container easily. Anywhere you are running Kubernetes, you should be able to run Kubegene.
+Kubedag is a workflow engine on Kubernetes platform. It is dedicated to making Gene Sequencing workflow execute in container easily. Anywhere you are running Kubernetes, you should be able to run KubeGene.
 
 ## Goals
 

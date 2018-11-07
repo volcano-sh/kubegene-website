@@ -1,28 +1,28 @@
 +++
-title = "Contributing to Kubegene"
+title = "Contributing to KubeGene"
 weight = 10
 toc = true
 aliases = ["/docs/about/"]
 [menu.main]
-  parent = "What is Kubegene?"
+  parent = "What is KubeGene?"
   weight = 4
 +++
 
-The following sections outline the process all changes to the Kubegene
+The following sections outline the process all changes to the KubeGene
 repositories go through.
 
 - [Working groups](#working-groups)
 - [Contributor license agreements](#contributor-license-agreements)
 - [Design documents](#design-documents)
 - [Contributing a feature](#contributing-a-feature)
-- [Setting up to contribute to Kubegene](#setting-up-to-contribute-to-kubegene)
+- [Setting up to contribute to KubeGene](#setting-up-to-contribute-to-kubegene)
 - [Pull requests](#pull-requests)
 - [Issues](#issues)
 
 ## Working groups
 
-The Kubegene community is organized into a set of working groups.
-Any contribution to Kubegene should be started by first engaging with the appropriate working group.
+The KubeGene community is organized into a set of working groups.
+Any contribution to KubeGene should be started by first engaging with the appropriate working group.
 
 ## Contributor license agreements
 
@@ -39,7 +39,7 @@ permission to use and redistribute your contributions as part of the project.
 Any substantial design deserves a design document. Design documents are written with Google Docs and
 should be shared with the community by adding the doc to our [Team Drive](TBD)
 and sending a note to the appropriate working group to let people know the doc is there. To get write access
-to the drive, you'll need to be a [member](ROLES.md#member) of the Kubegene organization.
+to the drive, you'll need to be a [member](ROLES.md#member) of the KubeGene organization.
 
 Anybody can access the team drive for reading and commenting. To get access simply join the
 [kubegene-team-drive-access@](TBD) group.
@@ -48,7 +48,7 @@ behold all the docs.
 
 ## Contributing a feature
 
-In order to contribute a feature to Kubegene you'll need to go through the following steps:
+In order to contribute a feature to KubeGene you'll need to go through the following steps:
 
 - Discuss your idea with the appropriate working groups on the working
 group's mailing list.
@@ -84,10 +84,10 @@ of it being accepted and so it is usually best to get agreement on the
 idea/design before time is spent coding it. However, sometimes seeing the
 exact code change can help focus discussions, so the choice is up to you.
 
-## Setting up to contribute to Kubegene
+## Setting up to contribute to KubeGene
 
 Check out this [README](https://github.com/kubegene/kubegene/blob/master/README.md) to learn about
-the Kubegene source base and setting up your development environment.
+the KubeGene source base and setting up your development environment.
 
 ## Pull requests
 

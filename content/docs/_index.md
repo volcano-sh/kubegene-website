@@ -1,4 +1,4 @@
 +++
 title = "Documentation"
-description = "All of Kubegene documentation"
+description = "All of KubeGene documentation"
 +++

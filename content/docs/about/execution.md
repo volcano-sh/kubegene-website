@@ -1,20 +1,20 @@
 +++
 title = "Execution Overview"
-description = "This page provides an overview of `Execution`, the smallest deployable object in the Kubegene object model."
+description = "This page provides an overview of `Execution`, the smallest deployable object in the KubeGene object model."
 weight = 10
 toc = true
 aliases = ["/docs/about/"]
 [menu.main]
-  parent = "What is Kubegene?"
+  parent = "What is KubeGene?"
   weight = 3
 +++
 
 
 ## Understanding Execution
 
-An *Execution* is the basic building block of Kubegene--the smallest and simplest unit in the Kubegene object model that you create or deploy. An Execution represents a group of running jobs on your kubernetes cluster.
+An *Execution* is the basic building block of KubeGene--the smallest and simplest unit in the KubeGene object model that you create or deploy. An Execution represents a group of running jobs on your kubernetes cluster.
 
-You describe a batch of jobs in an Execution object to achieve a common goal(like Gene Sequencing), each job can complete part of the whole work. And all jobs may have some dependent relationship. The jobs can share outputs by pvc or other datastore. Kubegene would schedule each job by the dependents relation.
+You describe a batch of jobs in an Execution object to achieve a common goal(like Gene Sequencing), each job can complete part of the whole work. And all jobs may have some dependent relationship. The jobs can share outputs by pvc or other datastore. KubeGene would schedule each job by the dependents relation.
 
 **Note:** You should not manage Jobs owned by an Execution. And currently we do not support modification of an existing Execution object.
 

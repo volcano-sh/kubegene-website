@@ -11,7 +11,7 @@ aliases = ["/docs/guides/"]
 
 ## Before you begin
 
-If you haven't already done so, setup Kubegene by the installation guide.
+If you haven't already done so, setup KubeGene by the installation guide.
 
 ## Jobs with depend type `whole`
 

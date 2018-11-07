@@ -1,6 +1,6 @@
 baseURL = "http://example.org/"
 languageCode = "en-us"
-title = "Kubegene"
+title = "KubeGene"
 theme = "theer"
 
 
@@ -12,7 +12,7 @@ theme = "theer"
   email = "myemail@myaddress.xxx"
 
 [[menu.main]]
-    name = "What is Kubegene?"
+    name = "What is KubeGene?"
     weight = 10
     url = "/docs/about/"
 [[menu.main]]

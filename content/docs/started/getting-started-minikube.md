@@ -1,16 +1,16 @@
 +++
-title = "Minikube for Kubegene"
-description = "Quickly get Kubegene running locally"
+title = "Minikube for KubeGene"
+description = "Quickly get KubeGene running locally"
 weight = 10
 toc = true
-bref = "This document will outline steps that will get your local installation of Kubegene running on top of Mikikube. Minikube runs a simple, single-node Kubernetes cluster inside a virtual machine (VM)."
+bref = "This document will outline steps that will get your local installation of KubeGene running on top of Mikikube. Minikube runs a simple, single-node Kubernetes cluster inside a virtual machine (VM)."
 [menu.main]
   parent = "Getting Started"
   weight = 2
 +++
 
 By the end of this document, you'll have a local installation of Minikube kubernetes cluster along with all the default core components of
-Kubeflow deployed as services in the pods. You can use genectl to submit your gene sequencing workflow to kubegene.
+Kubeflow deployed as services in the pods. You can use genectl to submit your gene sequencing workflow to KubeGene.
 
 ### Prerequisites
   - Laptop, Desktop or a Workstation

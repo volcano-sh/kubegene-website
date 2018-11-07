@@ -1,14 +1,14 @@
 +++
-title = "Kubegene Community Roles"
+title = "KubeGene Community Roles"
 weight = 10
 toc = true
 aliases = ["/docs/about/"]
 [menu.main]
-  parent = "What is Kubegene?"
+  parent = "What is KubeGene?"
   weight = 5
 +++
 
-This document describes the set of roles individuals may have within the Kubegene community, the requirements of each role, and the privileges that each role grants.
+This document describes the set of roles individuals may have within the KubeGene community, the requirements of each role, and the privileges that each role grants.
 
 * [Role summary](#role-summary)
 * [Collaborator](#collaborator)
@@ -19,9 +19,9 @@ This document describes the set of roles individuals may have within the Kubegen
 
 ## Role summary
 
-Here is the set of roles we use within the Kubegene community, the general responsibilities expected by individuals in each role,
+Here is the set of roles we use within the KubeGene community, the general responsibilities expected by individuals in each role,
 the requirements necessary to join or stay in a given role, and the concrete manifestation of the role in terms of permissions and
-privileges.  To request membership to the Kubegene organization, please open an issue
+privileges.  To request membership to the KubeGene organization, please open an issue
 and fill out the required template within the issue.
 Further, you may self-nominate to be an approver by opening an issue with a list of your key contributions.
 
@@ -38,9 +38,9 @@ Further, you may self-nominate to be an approver by opening an issue with a list
     <td>Casual contributor to the project</td>
     <td>n/a</td>
     <td>
-        <p>Outside collaborator of the GitHub Kubegene organization</p>
+        <p>Outside collaborator of the GitHub KubeGene organization</p>
         <p>Can submit PRs</p>
-        <p>Read and commenting permission on the Kubegene Team drive</p>
+        <p>Read and commenting permission on the KubeGene Team drive</p>
     </td>
   </tr>
 
@@ -52,9 +52,9 @@ Further, you may self-nominate to be an approver by opening an issue with a list
         <p>Has made multiple contributions to the project</p>
     </td>
     <td>
-        <p>Member of the GitHub Kubegene organization</p>
-        <p>Member of the Kubegene Slack workspace</p>
-        <p>Edit permission on the Kubegene Team drive</p>
+        <p>Member of the GitHub KubeGene organization</p>
+        <p>Member of the KubeGene Slack workspace</p>
+        <p>Edit permission on the KubeGene Team drive</p>
     </td>
   </tr>
 
@@ -81,10 +81,10 @@ Further, you may self-nominate to be an approver by opening an issue with a list
     <td>Manage & control permissions</td>
     <td>Appointed by the technical oversight committee</td>
     <td>
-        <p>Admin privileges on the GitHub Kubegene org and all its repos</p>
-        <p>Admin privileges on the Kubegene Slack workspace</p>
-        <p>Admin privileges on the Kubegene Team Drive</p>
-        <p>Admin privilege to the Kubegene email lists.</p>
+        <p>Admin privileges on the GitHub KubeGene org and all its repos</p>
+        <p>Admin privileges on the KubeGene Slack workspace</p>
+        <p>Admin privileges on the KubeGene Team Drive</p>
+        <p>Admin privilege to the KubeGene email lists.</p>
     </td>
   </tr>
 
@@ -92,7 +92,7 @@ Further, you may self-nominate to be an approver by opening an issue with a list
 
 ## Collaborator
 
-Individuals may be added as an outside collaborator (with READ access) to a repo in the Kubegene GitHub organization without becoming a member.
+Individuals may be added as an outside collaborator (with READ access) to a repo in the KubeGene GitHub organization without becoming a member.
 This allows them to be assigned issues and PRs until they become a member, but will not allow tests to be run against their PRs automatically
 nor allow them to interact with the PR bot.
 
@@ -197,7 +197,7 @@ Getting to be a lead of an existing working group:
 
 * Approver for some part of the codebase for at least 3 months
 
-* Member for at least 1 year (relevant as Kubegene ages a bit more)
+* Member for at least 1 year (relevant as KubeGene ages a bit more)
 
 * Primary reviewer for 20 substantial PRs
 
@@ -257,9 +257,9 @@ Administrators are responsible for the bureaucratic aspects of the project.
 
 ### Responsibilities and privileges
 
-* Manage the Kubegene GitHub repo, including granting membership, controlling repo read/write permissions,
+* Manage the KubeGene GitHub repo, including granting membership, controlling repo read/write permissions,
 and team membership
 
-* Manage the Kubegene developer Slack workspace
+* Manage the KubeGene developer Slack workspace
 
-* Manage the Kubegene Google group forums
+* Manage the KubeGene Google group forums

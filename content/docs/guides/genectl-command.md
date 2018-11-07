@@ -10,7 +10,7 @@ aliases = ["/docs/guides/"]
   weight = 2
 +++
 
-genectl is a command line interface for running commands against Kubegene. You can use genectl to submit your workflow and query the status of workflow execution.   
+genectl is a command line interface for running commands against KubeGene. You can use genectl to submit your workflow and query the status of workflow execution.   
 
 ## **genectl sub**
 submit gene sequencing workflow to kube-dag controller to execute. 
