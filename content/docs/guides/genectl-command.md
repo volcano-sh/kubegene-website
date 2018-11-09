@@ -13,7 +13,7 @@ aliases = ["/docs/guides/"]
 genectl is a command line interface for running commands against KubeGene. You can use genectl to submit your workflow and query the status of workflow execution.   
 
 ## **genectl sub**
-submit gene sequencing workflow to kube-dag controller to execute. 
+submit genome sequencing workflow to kube-dag controller to execute. 
 
 It contains three subcommand:
 
@@ -31,7 +31,7 @@ genectl sub workflow
 | --dry-run           | No       | If true, display instantiate execution but do not submit                                                               |
 
 ## **genectl sub job**
-sub job command submits a job which execute a single shell script when perform gene sequencing. You should upload the shell script and sample data to the volume used by this job in preparation stage. 
+sub job command submits a job which execute a single shell script when perform genome sequencing. You should upload the shell script and sample data to the volume used by this job in preparation stage. 
 
 ### Usage
 genectl sub job FILENAME [flags]  

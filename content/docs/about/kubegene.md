@@ -11,17 +11,17 @@ aliases = ["/docs/about/"]
 
 ## What is KubeGene
 
-The KubeGene is dedicated to making gene sequencing process simple, portable and scalable. It provides a complete solution for gene sequencing on the kubernetes and supports mainstream biological gene sequencing scenarios such as DNA, RNA, and liquid biopsy. KubeGene is based on lightweight container technology and official standard algorithms. You can make a flexible and customizable gene sequencing process by using KubeGene.
+The KubeGene is dedicated to making genome sequencing process simple, portable and scalable. It provides a complete solution for genome sequencing on the kubernetes and supports mainstream biological genome sequencing scenarios such as DNA, RNA, and liquid biopsy. KubeGene is based on lightweight container technology and official standard algorithms. You can make a flexible and customizable genome sequencing process by using KubeGene.
 
-KubeGene which running on the kubernetes makes gene sequencing simple and easy. It has the following characteristics:
+KubeGene which running on the kubernetes makes genome sequencing simple and easy. It has the following characteristics:
 
-* **Universal workflow design grammar**. KubeGene provides a complete set of gene sequencing workflow grammars which decouples with specific analysis tools. It requires a very low learning cost to learn how to write and use the workflow. You can easily migrate the gene sequencing business to KubeGene.
+* **Universal workflow design grammar**. KubeGene provides a complete set of genome sequencing workflow grammars which decouples with specific analysis tools. It requires a very low learning cost to learn how to write and use the workflow. You can easily migrate the genome sequencing business to KubeGene.
 
-* **Tailor-made workflow for the biosequencing industry**. The workflow grammar is designed by comparing different genetic sequencing scenarios. It also keeps the user's traditional usage habit as much as possible and is closer to user scenarios.
+* **Tailor-made workflow for the biosequencing industry**. The workflow grammar is designed by comparing different genome sequencing scenarios. It also keeps the user's traditional usage habit as much as possible and is closer to user scenarios.
 
-* **More efficient resource usage**. KubeGene uses container to run the gene sequencing business. Compared to traditional gene sequencing solutions using virtual machines, KubeGene makes resource usage more efficient and avoiding resource idle . 
+* **More efficient resource usage**. KubeGene uses container to run the genome sequencing business. Compared to traditional genome sequencing solutions using virtual machines, KubeGene makes resource usage more efficient and avoiding resource idle . 
 
-* **Scaling based on demand**. kubernetes can automatically scale your cluster based on your gene sequencing workload by using KubeGene. Also you can easily scale the kubernetes cluster manually. It can save your production costs.
+* **Scaling based on demand**. kubernetes can automatically scale your cluster based on your genome sequencing workload by using KubeGene. Also you can easily scale the kubernetes cluster manually. It can save your production costs.
 
 ## Components of KubeGene
 
@@ -34,10 +34,10 @@ KubeGene has two main componments.
 ## Concepts of KubeGene
 
 ### Workflow
-Definition of the gene sequencing process. The gene sequencing workflow includes the execution sequence information and the tool required for the sequencing process and the input data. The workflow consists of at least one tool. Each subtask in the workflow forms a data stream by its sequential relationship, and the pre-order subtask provides input for the subsequent subtask. For how to write your workflow, you can see [workflow grammar](https://kubegene.netlify.com/docs/guides/workflow-grammar/).
+Definition of the genome sequencing process. The genome sequencing workflow includes the execution sequence information and the tool required for the sequencing process and the input data. The workflow consists of at least one tool. Each subtask in the workflow forms a data stream by its sequential relationship, and the pre-order subtask provides input for the subsequent subtask. For how to write your workflow, you can see [workflow grammar](https://kubegene.netlify.com/docs/guides/workflow-grammar/).
 
 ### Execution
-A certain execution process of the gene sequencing workflow. When you submit a workflow, KubeGene will create a execution to execute the gene sequencing job. For more information, you can see [execution](https://kubegene.netlify.com/docs/about/execution/).
+A certain execution process of the genome sequencing workflow. When you submit a workflow, KubeGene will create a execution to execute the genome sequencing job. For more information, you can see [execution](https://kubegene.netlify.com/docs/about/execution/).
 
 ### Tool
-Software tools which genetic sequencing use. It is a mirrored package of bioinformatics software. The tools can be programmed into the workflow in series or independently. For more information, you can see [Tool](https://kubegene.netlify.com/docs/guides/tool/)
+Software tools which genome sequencing use. It is a mirrored package of bioinformatics software. The tools can be programmed into the workflow in series or independently. For more information, you can see [Tool](https://kubegene.netlify.com/docs/guides/tool/)

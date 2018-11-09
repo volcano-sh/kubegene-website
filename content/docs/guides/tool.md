@@ -12,7 +12,7 @@ aliases = ["/docs/guides/"]
 
 ## Tool overview
 
-Software tools which gene sequencing use. It is a mirrored package of bioinformatics software. The tools can be programmed into the workflow in series or independently. We will provide a number of public tools, and users can create custom tools. All the tools are stored in a sequencing tool repository.
+Software tools which genome sequencing use. It is a mirrored package of bioinformatics software. The tools can be programmed into the workflow in series or independently. We will provide a number of public tools, and users can create custom tools. All the tools are stored in a sequencing tool repository.
 
 
 ## Tool format
@@ -50,7 +50,7 @@ description: gatk
 ```
 
 ## How to use tool
-When you use genectl to submit gene sequencing workflow, you can specify what tool to use, the format is: "toolName:toolVersion", and when the workflow is executing, it will use the real image to perform tht task.  
+When you use genectl to submit genome sequencing workflow, you can specify what tool to use, the format is: "toolName:toolVersion", and when the workflow is executing, it will use the real image to perform tht task.  
 For example, when use `sub job` command,
 ```
 genectl sub job /kubegene/bwa_help.sh --memory 1g --cpu 1 --tool bwa:0.7.12 --pvc pvc-gene
@@ -91,7 +91,7 @@ When use `sub workflow` command, the workflow will be:
 
 ## Common tools
 
-There are some common tools that you can use to perform gene sequencing easily.  
+There are some common tools that you can use to perform genome sequencing easily.  
 
 | Tool name 	| Tool description                                                                                                                                                                                                                                                                                             	|
 |-----------	|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|

@@ -10,7 +10,7 @@ aliases = ["/docs/guides/"]
   weight = 1
 +++
 
-We have defined a complete set of gene sequencing workflow grammars. It keeps the user's traditional usage habit as much as possible. It requires a very low learning cost to learn how to write and use the workflow. If you have other type workflow grammar files, you need to convert them to the gene container syntax first.
+We have defined a complete set of genome sequencing workflow grammars. It keeps the user's traditional usage habit as much as possible. It requires a very low learning cost to learn how to write and use the workflow. If you have other type workflow grammar files, you need to convert them to the gene container syntax first.
 
 ## **Template structure**
 
@@ -64,7 +64,7 @@ The version of gene workflow, the current support is genecontainer_0_1.
 
 ## **inputs**
 
-Optional. Used to define the variable of the gene sequencing process. Inputs consists of multiple variables, up to 60 variables can be defined, and each variable name is unique. If the variable name is repeated, the latter definition will override the previously defined one. Variables can be referenced in other parts of the workflow file, using the shell script format, ie: ${var}, where var is the variable name.
+Optional. Used to define the variable of the genome sequencing process. Inputs consists of multiple variables, up to 60 variables can be defined, and each variable name is unique. If the variable name is repeated, the latter definition will override the previously defined one. Variables can be referenced in other parts of the workflow file, using the shell script format, ie: ${var}, where var is the variable name.
 
 
 ### inputs format
@@ -451,7 +451,7 @@ workflow:
 
 ## **volumes**
 
-Optional, information about volume that required gene sequencing process required, such as mount path in container, pvc name and so on. You can specify multiple volumes.
+Optional, information about volume that required genome sequencing process required, such as mount path in container, pvc name and so on. You can specify multiple volumes.
 
 ### Volumes format
 

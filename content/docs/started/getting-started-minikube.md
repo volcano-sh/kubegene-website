@@ -10,7 +10,7 @@ bref = "This document will outline steps that will get your local installation o
 +++
 
 By the end of this document, you'll have a local installation of Minikube kubernetes cluster along with all the default core components of
-Kubeflow deployed as services in the pods. You can use genectl to submit your gene sequencing workflow to KubeGene.
+Kubeflow deployed as services in the pods. You can use genectl to submit your genome sequencing workflow to KubeGene.
 
 ### Prerequisites
   - Laptop, Desktop or a Workstation
