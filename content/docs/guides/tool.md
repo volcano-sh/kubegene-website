@@ -35,7 +35,7 @@ description: <info>
 | cpu         | No       | string | cpu is the recommended cpu resources request for this tool to run. If we do not specify cpu request in the workflow, this value will be used. Format: "Number + Unit".<ul><li>The number can be decimals.</li><li>The unit is C or c.</li></ul>For example, if the cpu required is 4C, you can fill in "4c" or "4C" here.                                                   |
 | memory      | No       | string | memory is the recommended memory resources request for this tool to run. If we do not specify memory request in the workflow, this value will be used. Format: "Number + Unit".<ul><li>The number can be decimals.</li><li>The unit is G or g.</li></ul>For example, if the memory size required is 4G, you can fill in "4G" or "4g" here.                                          |
 | command     | No       | string | The recommended command to use this tool.                                                                                                                                                        |
-| description | No       | string | Information about this tool and instructions info for use. The max length of name is 255 characters.   
+| description | No       | string | Information about this tool and instructions info for use. The max length of name is 255 characters. 
 
 
 ## Tool instance
@@ -50,12 +50,12 @@ description: gatk
 ```
 
 ## How to use tool
-When you use genectl to submit genome sequencing workflow, you can specify what tool to use, the format is: "toolName:toolVersion", and when the workflow is executing, it will use the real image to perform tht task.  
+When you use genectl to submit genome sequencing workflow, you can specify what tool to use, the format is: "toolName:toolVersion", and when the workflow is executing, it will use the real image to perform tht task.
 For example, when use `sub job` command,
 ```
 genectl sub job /kubegene/bwa_help.sh --memory 1g --cpu 1 --tool bwa:0.7.12 --pvc pvc-gene
 ```
-When use `sub workflow` command, the workflow will be:  
+When use `sub workflow` command, the workflow will be:
 
 ```
 ...
@@ -91,7 +91,7 @@ When use `sub workflow` command, the workflow will be:
 
 ## Common tools
 
-There are some common tools that you can use to perform genome sequencing easily.  
+There are some common tools that you can use to perform genome sequencing easily.
 
 | Tool name 	| Tool description                                                                                                                                                                                                                                                                                             	|
 |-----------	|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|

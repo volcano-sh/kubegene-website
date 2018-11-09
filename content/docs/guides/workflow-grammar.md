@@ -116,7 +116,7 @@ flag:
 
 ## **Workflow**
 
-Required. Define the tasks involved in the process and the dependencies between the tasks.   
+Required. Define the tasks involved in the process and the dependencies between the tasks. 
 A workflow consists of multiple steps, each of which can perform a specific task.
 
 ### workflow format
@@ -147,8 +147,8 @@ workflow:
       <td>task name</td>
       <td>Yes</td>
       <td>String   </td>
-      <td>The name of task. It must consist of lower case alphanumeric characters or '-',   
-      and must start and end with an alphanumeric character. And must be no more than   
+      <td>The name of task. It must consist of lower case alphanumeric characters or '-', 
+      and must start and end with an alphanumeric character. And must be no more than 
       40 characters.</td>
    </tr>
    <tr>
@@ -161,7 +161,7 @@ workflow:
       <td>tool</td>
       <td>Yes</td>
       <td>String   </td>
-      <td>The tool and version of the current task required, format "toolName:toolVersion".   
+      <td>The tool and version of the current task required, format "toolName:toolVersion". 
       For example, the bwa of version 0.7.12 is set to "tool: bwa:0.7.12".</td>
    </tr>
    <tr>
@@ -174,10 +174,10 @@ workflow:
       <td>commands</td>
       <td>No</td>
       <td>array[string]</td>
-      <td>The command executed in the container. The length of the array indicates   
-      the number of concurrent. Each member represents a command executed in a   
-      container.In the following example, if there are four lines in the command,   
-      the number of concurrent containers is 4, and each container executes a   
+      <td>The command executed in the container. The length of the array indicates 
+      the number of concurrent. Each member represents a command executed in a 
+      container.In the following example, if there are four lines in the command, 
+      the number of concurrent containers is 4, and each container executes a 
       different command.
          <pre>
 commands:
@@ -185,7 +185,7 @@ commands:
   - sh /obs/shell/run-xxx/run.sh 2 a 
   - sh /obs/shell/run-xxx/run.sh 1 b 
   - sh /obs/shell/run-xxx/run.sh 2 b </pre>
-  Note 1: One of field commands and commandsIter must be set. Use commandsIter if the commands   
+  Note 1: One of field commands and commandsIter must be set. Use commandsIter if the commands 
   need to pass variables, otherwise use commands.
       </td>
    </tr>
@@ -193,7 +193,7 @@ commands:
       <td>commandsIter</td>
       <td>No</td>
       <td>Struct</td>
-      <td>The command executed in the container, and the difference between command and commandIter   
+      <td>The command executed in the container, and the difference between command and commandIter 
       is that the commandIter supports shell scripts with variables.</td>
    </tr>
    <tr>
@@ -257,9 +257,9 @@ commands:
 There are two ways to define variables: 
 <ul>
 <li>
-Variable parameters defined in commandsIter, including vars and varsIter parameters,  
- you can set one of them. The format is "${n}", n is a positive integer starting at 1.   
- And it will be replaced by the nth element of vars. The vars needs to list all   
+Variable parameters defined in commandsIter, including vars and varsIter parameters,
+ you can set one of them. The format is "${n}", n is a positive integer starting at 1. 
+ And it will be replaced by the nth element of vars. The vars needs to list all 
  combinations of parameter, and the varsIter is an automatic traversal combination of parameter.
 </li>
 <li>Built-in variable "${item}". Represent the order number of all the possible parameter combinations.
@@ -273,7 +273,7 @@ For example:
           - a
           - b 
           - c </pre>
-   
+ 
 Then the final command will be:
 <pre>
     - echo a 0 
@@ -289,14 +289,14 @@ Then the final command will be:
       <td>A two-dimensional array, will be used to replace the command variable, represent all the possible parameter combinations. 
       <ul>
       <li>
-      In the two-dimensional array, the members of each row represent the variables   
-      "${1}", "${2}", "${3}" in the command. "${1}" represents the first member of each line.   
-      ${2} represents the second member of each line. And "${3}" represents the third   
+      In the two-dimensional array, the members of each row represent the variables 
+      "${1}", "${2}", "${3}" in the command. "${1}" represents the first member of each line. 
+      ${2} represents the second member of each line. And "${3}" represents the third 
       member of each line.
       </li>
       <li>
-      The length of the two-dimensional array indicates that how many times the command   
-      will be executed with different parameters. Each line of the array is used to   
+      The length of the two-dimensional array indicates that how many times the command 
+      will be executed with different parameters. Each line of the array is used to 
       instantiate the command.The number of rows in the array is the number of k8s job that will run.
       </li>
       </ul>
@@ -308,7 +308,7 @@ vars:
   - [0, 1] # 0 -> ${1}; 1 -> ${2}; 1 -> ${item} 
   - [1, 0] # 1 -> ${1}; 0 -> ${2}; 2 -> ${item} 
   - [1, 1] # 1 -> ${1}; 1 -> ${2}; 3 -> ${item} </pre>
-        
+
 4 k8s jobs will run to execute the commands.<br>
 For the 1st job, the command is:
 <pre>
@@ -317,26 +317,26 @@ echo 0 0 0
 For the 2nd job, the command is: 
 <pre>
 echo 0 1 1 
-</pre>    
+</pre>
 For the 3rd job, the command is:
 <pre>
 echo 1 0 2 
-</pre>    
+</pre>
 For the 4th job, the command is: 
 <pre>
 echo 1 1 3
-</pre>    
+</pre>
 </td>
    </tr>
    <tr>
       <td>varsIter</td>
       <td>No</td>
       <td>array[array]</td>
-      <td>A two-dimensional array. VarsIter list all the possible parameters for every position   
-      in the command line. And we will use algorithm Of Full Permutation to generate all the   
-      permutation and combinations for these parameter that will be used to replace the "${n}" variable.   
-      The first row member of the array replace the variable "${1}" in the command,   
-      the second row member replace the variable "${2}" in the command, and so on.  
+      <td>A two-dimensional array. VarsIter list all the possible parameters for every position 
+      in the command line. And we will use algorithm Of Full Permutation to generate all the 
+      permutation and combinations for these parameter that will be used to replace the "${n}" variable. 
+      The first row member of the array replace the variable "${1}" in the command, 
+      the second row member replace the variable "${2}" in the command, and so on.
       For example,
 <pre>
 commandsIter:
@@ -352,13 +352,13 @@ sh /tmp/scripts/step1.splitfq.sh sample2 0 25
 sh /tmp/scripts/step1.splitfq.sh sample1 1 25 
 sh /tmp/scripts/step1.splitfq.sh sample2 1 25 
 </pre>
-If there are many array members per line, you can use the range function.  
-The format of range function:  
+If there are many array members per line, you can use the range function.
+The format of range function:
 <pre>range(start, end, step)</pre>
- Start and end are all integer. And step can only be positive integer.   
+ Start and end are all integer. And step can only be positive integer. 
  If you do not specify step, the default is 1.
 
-Range(1, 4) represents array [1,2,3]  
+Range(1, 4) represents array [1,2,3]
 Range(1, 10, 2) represents array [1, 3, 5, 7, 9] 
 <pre>
 varsIter: - range(0, 4)
@@ -404,7 +404,7 @@ varsIter: - [0, 1, 2, 3]
      Setting “whole” indicates that task B can start execution after all 100 steps of task A finished.
      </li>
      <li>
-     Setting “iterate” means that the 1st step of task A is completed, then the 1st step of the task B   
+     Setting “iterate” means that the 1st step of task A is completed, then the 1st step of the task B 
      can start execution. Iterative execution can improve the overall concurrency efficiency.
      </li>
      </ul>
