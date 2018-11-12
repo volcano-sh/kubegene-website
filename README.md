@@ -91,7 +91,7 @@ local machine, then use your local repo as input to your Hugo web server:
   local website reflects the files in the current branch.
 
 Useful Hugo docs:
-- [Hugo installation guide][hugo-install]
+- [Hugo installation guide](https://gohugo.io/getting-started/installing/)
 - [Hugo basic usage](https://gohugo.io/getting-started/usage/)
 - [Hugo site directory structure](https://gohugo.io/getting-started/directory-structure/)
 - [hugo server reference](https://gohugo.io/commands/hugo_server/)
