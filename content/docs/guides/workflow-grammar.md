@@ -38,7 +38,7 @@ workflow:
     resources:
       memory: 4G
       cpu: 4C
-    commandsIter:
+    commands_iter:
       command: sleep 10; touch /result/test-job/${sample}.${item}.${1}.txt 
       vars_iter:
         - [0,1]
@@ -53,8 +53,8 @@ workflow:
       - target: test-job-a
 volumes: 
   genobs:
-    mountPath: /result
-    mountFrom:
+    mount_path: /result
+    mount_from:
       pvc: test-pvc # claimName
 ```
 
@@ -128,7 +128,7 @@ workflow:
     tool: <toolName:version>
     resources：<resources required by the workflow>
     commands：<commands>
-    commandsIter: <commands with variable>
+    commands_iter: <commands with variable>
     depends：< dependent task>
 ```
 
@@ -185,12 +185,12 @@ commands:
   - sh /obs/shell/run-xxx/run.sh 2 a 
   - sh /obs/shell/run-xxx/run.sh 1 b 
   - sh /obs/shell/run-xxx/run.sh 2 b </pre>
-  Note 1: One of field commands and commandsIter must be set. Use commandsIter if the commands 
+  Note 1: One of field commands and commands_iter must be set. Use commands_iter if the commands 
   need to pass variables, otherwise use commands.
       </td>
    </tr>
    <tr>
-      <td>commandsIter</td>
+      <td>commands_iter</td>
       <td>No</td>
       <td>Struct</td>
       <td>The command executed in the container, and the difference between command and commandIter 
@@ -239,7 +239,7 @@ commands:
 </table>
 
 
-#### commandsIter field description
+#### commands_iter field description
 
 <table>
    <tr>
@@ -257,17 +257,17 @@ commands:
 There are two ways to define variables: 
 <ul>
 <li>
-Variable parameters defined in commandsIter, including vars and varsIter parameters,
+Variable parameters defined in commands_iter, including vars and vars_iter parameters,
  you can set one of them. The format is "${n}", n is a positive integer starting at 1. 
  And it will be replaced by the nth element of vars. The vars needs to list all 
- combinations of parameter, and the varsIter is an automatic traversal combination of parameter.
+ combinations of parameter, and the vars_iter is an automatic traversal combination of parameter.
 </li>
 <li>Built-in variable "${item}". Represent the order number of all the possible parameter combinations.
 </li>
 </ul>
 For example:
 <pre>
-    commandsIter: 
+    commands_iter: 
       command: echo ${1} ${item} 
         vars:
           - a
@@ -329,19 +329,19 @@ echo 1 1 3
 </td>
    </tr>
    <tr>
-      <td>varsIter</td>
+      <td>vars_iter</td>
       <td>No</td>
       <td>array[array]</td>
-      <td>A two-dimensional array. VarsIter list all the possible parameters for every position 
+      <td>A two-dimensional array. vars_iter list all the possible parameters for every position 
       in the command line. And we will use algorithm Of Full Permutation to generate all the 
       permutation and combinations for these parameter that will be used to replace the "${n}" variable. 
       The first row member of the array replace the variable "${1}" in the command, 
       the second row member replace the variable "${2}" in the command, and so on.
       For example,
 <pre>
-commandsIter:
+commands_iter:
   command: sh /tmp/step1.splitfq.sh ${1} ${2} ${3}
-  varsIter: - ["sample1", "sample2"]
+  vars_iter: - ["sample1", "sample2"]
             - [0, 1]
             - [25]
 </pre>
@@ -361,10 +361,10 @@ The format of range function:
 Range(1, 4) represents array [1,2,3]
 Range(1, 10, 2) represents array [1, 3, 5, 7, 9] 
 <pre>
-varsIter: - range(0, 4)
+vars_iter: - range(0, 4)
 </pre>the same as: 
 <pre>
-varsIter: - [0, 1, 2, 3]
+vars_iter: - [0, 1, 2, 3]
 </pre>
 </td>
    </tr>
@@ -426,9 +426,9 @@ workflow:
       - sleep `expr 3 \* ${wait-base}`; echo ${output-prefix}job-a | tee -a ${obs}/${output}/${result};
   job-b:
     tool: nginx:latest
-    commandsIter:
+    commands_iter:
       command: sleep `expr ${1} \* ${wait-base}`; echo ${output-prefix}job-b-${item} | tee -a ${obs}/${output}/${result};
-      varsIter:
+      vars_iter:
         - range(0, 3)
     depends:
       - target: job-a
@@ -439,9 +439,9 @@ workflow:
     resources:
       memory: 8G
       cpu: 2c
-    commandsIter:
+    commands_iter:
       command: sleep `expr ${1} \* ${wait-base}`; echo ${output-prefix}job-c-${item} | tee -a ${obs}/${output}/${result};
-      varsIter:
+      vars_iter:
         - [3, 20]
     depends:
       - target: job-a
@@ -458,8 +458,8 @@ Optional, information about volume that required genome sequencing process requi
 ```
 volumes: 
   <volume name>:
-    mountPath: <mountPath>
-    mountFrom: <pvc info>
+    mount_path: <mount_path>
+    mount_from: <pvc info>
 ```
 
 ### field
@@ -472,13 +472,13 @@ volumes:
       <td>description</td>
    </tr>
    <tr>
-      <td>mountPath</td>
+      <td>mount_path</td>
       <td>Yes</td>
       <td>string</td>
       <td>Path within the container at which the volume should be mounted. Must not contain ':'.</td>
    </tr>
    <tr>
-      <td>mountFrom</td>
+      <td>mount_from</td>
       <td>Yes</td>
       <td>struct</td>
       <td>Detail info about volume</td>
@@ -486,7 +486,7 @@ volumes:
 </table>
 
 
-mountFrom field description
+mount_from field description
 
 <table>
    <tr>
@@ -508,11 +508,11 @@ mountFrom field description
 ```
 volumes:
   genref:
-    mountPath: ${volume-path-ref}
-    mountFrom:
+    mount_path: ${volume-path-ref}
+    mount_from:
       pvc: ${my_k8s_pvc}
   genobs:
-    mountPath: /volume-path-obs
-    mountFrom:
+    mount_path: /volume-path-obs
+    mount_from:
       pvc: sample-data-pvc
 ```
