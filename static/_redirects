@@ -1,0 +1,2 @@
+# Redirect golang vanity imports for kubegene.io
+/kubegene/* go-get=1 /golang/kubegene.html 200
