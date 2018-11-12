@@ -1,2 +1,5 @@
 # Redirect golang vanity imports for kubegene.io
 /kubegene/* go-get=1 /golang/kubegene.html 200
+
+# Redirect default Netlify subdomain to primary domain
+https://kubegene.netlify.com/* https://kubegene.io/:splat 301!
