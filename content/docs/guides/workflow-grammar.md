@@ -290,9 +290,7 @@ Then the final command will be:
       <ul>
       <li>
       In the two-dimensional array, the members of each row represent the variables 
-      "${1}", "${2}", "${3}" in the command. "${1}" represents the first member of each line. 
-      ${2} represents the second member of each line. And "${3}" represents the third 
-      member of each line.
+      <code>${1}</code>, <code>${2}</code>, <code>${3}</code> in the command. <code>${1}</code> represents the first member of each line. <code>${2}</code> represents the second member of each line. And <code>${3}</code> represents the third member of each line.
       </li>
       <li>
       The length of the two-dimensional array indicates that how many times the command 
@@ -334,9 +332,9 @@ echo 1 1 3
       <td>array[array]</td>
       <td>A two-dimensional array. vars_iter list all the possible parameters for every position 
       in the command line. And we will use algorithm Of Full Permutation to generate all the 
-      permutation and combinations for these parameter that will be used to replace the "${n}" variable. 
-      The first row member of the array replace the variable "${1}" in the command, 
-      the second row member replace the variable "${2}" in the command, and so on.
+      permutation and combinations for these parameter that will be used to replace the <code>${n}</code> variable.
+      The first row member of the array replace the variable <code>${1}</code> in the command,
+      the second row member replace the variable <code>${2}</code> in the command, and so on.
       For example,
 <pre>
 commands_iter:
