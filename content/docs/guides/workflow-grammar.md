@@ -39,7 +39,7 @@ workflow:
       memory: 4G
       cpu: 4C
     commands_iter:
-      command: sleep 10; touch /result/test-job/${sample}.${item}.${1}.txt 
+      command: sleep 10; touch /result/test-job/${sample}.${item}.${1}.txt
       vars_iter:
         - [0,1]
   test-job-b:
@@ -51,7 +51,7 @@ workflow:
       - sleep 10; touch /result/test-job/${sample}.job-b.txt
     depends:
       - target: test-job-a
-volumes: 
+volumes:
   genobs:
     mount_path: /result
     mount_from:
@@ -116,7 +116,7 @@ flag:
 
 ## **Workflow**
 
-Required. Define the tasks involved in the process and the dependencies between the tasks. 
+Required. Define the tasks involved in the process and the dependencies between the tasks.
 A workflow consists of multiple steps, each of which can perform a specific task.
 
 ### workflow format
@@ -147,8 +147,8 @@ workflow:
       <td>task name</td>
       <td>Yes</td>
       <td>String   </td>
-      <td>The name of task. It must consist of lower case alphanumeric characters or '-', 
-      and must start and end with an alphanumeric character. And must be no more than 
+      <td>The name of task. It must consist of lower case alphanumeric characters or '-',
+      and must start and end with an alphanumeric character. And must be no more than
       40 characters.</td>
    </tr>
    <tr>
@@ -161,7 +161,7 @@ workflow:
       <td>tool</td>
       <td>Yes</td>
       <td>String   </td>
-      <td>The tool and version of the current task required, format "toolName:toolVersion". 
+      <td>The tool and version of the current task required, format "toolName:toolVersion".
       For example, the bwa of version 0.7.12 is set to "tool: bwa:0.7.12".</td>
    </tr>
    <tr>
@@ -174,18 +174,18 @@ workflow:
       <td>commands</td>
       <td>No</td>
       <td>array[string]</td>
-      <td>The command executed in the container. The length of the array indicates 
-      the number of concurrent. Each member represents a command executed in a 
-      container.In the following example, if there are four lines in the command, 
-      the number of concurrent containers is 4, and each container executes a 
+      <td>The command executed in the container. The length of the array indicates
+      the number of concurrent. Each member represents a command executed in a
+      container.In the following example, if there are four lines in the command,
+      the number of concurrent containers is 4, and each container executes a
       different command.
          <pre>
 commands:
-  - sh /obs/shell/run-xxx/run.sh 1 a 
-  - sh /obs/shell/run-xxx/run.sh 2 a 
-  - sh /obs/shell/run-xxx/run.sh 1 b 
+  - sh /obs/shell/run-xxx/run.sh 1 a
+  - sh /obs/shell/run-xxx/run.sh 2 a
+  - sh /obs/shell/run-xxx/run.sh 1 b
   - sh /obs/shell/run-xxx/run.sh 2 b </pre>
-  Note 1: One of field commands and commands_iter must be set. Use commands_iter if the commands 
+  Note 1: One of field commands and commands_iter must be set. Use commands_iter if the commands
   need to pass variables, otherwise use commands.
       </td>
    </tr>
@@ -193,7 +193,7 @@ commands:
       <td>commands_iter</td>
       <td>No</td>
       <td>Struct</td>
-      <td>The command executed in the container, and the difference between command and commandIter 
+      <td>The command executed in the container, and the difference between command and commandIter
       is that the commandIter supports shell scripts with variables.</td>
    </tr>
    <tr>
@@ -230,7 +230,7 @@ commands:
       <td>cpu</td>
       <td>No</td>
       <td>String</td>
-      <td>The amount of memory resources required, in C. Format: "Number 
+      <td>The amount of memory resources required, in C. Format: "Number
       + Unit".
       <ul>
       <li>The number can be decimals.</li>
@@ -254,12 +254,12 @@ commands:
       <td>String</td>
       <td>A shell script with variables, for example:
       <pre>echo ${1} ${2} ${item} </pre>
-There are two ways to define variables: 
+There are two ways to define variables:
 <ul>
 <li>
 Variable parameters defined in commands_iter, including vars and vars_iter parameters,
- you can set one of them. The format is "${n}", n is a positive integer starting at 1. 
- And it will be replaced by the nth element of vars. The vars needs to list all 
+ you can set one of them. The format is "${n}", n is a positive integer starting at 1.
+ And it will be replaced by the nth element of vars. The vars needs to list all
  combinations of parameter, and the vars_iter is an automatic traversal combination of parameter.
 </li>
 <li>Built-in variable "${item}". Represent the order number of all the possible parameter combinations.
@@ -267,17 +267,17 @@ Variable parameters defined in commands_iter, including vars and vars_iter param
 </ul>
 For example:
 <pre>
-    commands_iter: 
-      command: echo ${1} ${item} 
+    commands_iter:
+      command: echo ${1} ${item}
         vars:
           - a
-          - b 
+          - b
           - c </pre>
- 
+
 Then the final command will be:
 <pre>
-    - echo a 0 
-    - echo b 1 
+    - echo a 0
+    - echo b 1
     - echo c 2
 </pre>
 </td>
@@ -286,41 +286,41 @@ Then the final command will be:
       <td>vars</td>
       <td>No</td>
       <td>array[array] </td>
-      <td>A two-dimensional array, will be used to replace the command variable, represent all the possible parameter combinations. 
+      <td>A two-dimensional array, will be used to replace the command variable, represent all the possible parameter combinations.
       <ul>
       <li>
-      In the two-dimensional array, the members of each row represent the variables 
+      In the two-dimensional array, the members of each row represent the variables
       <code>${1}</code>, <code>${2}</code>, <code>${3}</code> in the command. <code>${1}</code> represents the first member of each line. <code>${2}</code> represents the second member of each line. And <code>${3}</code> represents the third member of each line.
       </li>
       <li>
-      The length of the two-dimensional array indicates that how many times the command 
-      will be executed with different parameters. Each line of the array is used to 
+      The length of the two-dimensional array indicates that how many times the command
+      will be executed with different parameters. Each line of the array is used to
       instantiate the command.The number of rows in the array is the number of k8s job that will run.
       </li>
       </ul>
       For example, the vars has four lines.
       <pre>
-command: echo ${1} ${2} ${item} 
-vars: 
+command: echo ${1} ${2} ${item}
+vars:
   - [0, 0] # 0 -> ${1}; 0 -> ${2}; 0 -> ${item}
-  - [0, 1] # 0 -> ${1}; 1 -> ${2}; 1 -> ${item} 
-  - [1, 0] # 1 -> ${1}; 0 -> ${2}; 2 -> ${item} 
+  - [0, 1] # 0 -> ${1}; 1 -> ${2}; 1 -> ${item}
+  - [1, 0] # 1 -> ${1}; 0 -> ${2}; 2 -> ${item}
   - [1, 1] # 1 -> ${1}; 1 -> ${2}; 3 -> ${item} </pre>
 
 4 k8s jobs will run to execute the commands.<br>
 For the 1st job, the command is:
 <pre>
-echo 0 0 0 
+echo 0 0 0
 </pre>
-For the 2nd job, the command is: 
+For the 2nd job, the command is:
 <pre>
-echo 0 1 1 
+echo 0 1 1
 </pre>
 For the 3rd job, the command is:
 <pre>
-echo 1 0 2 
+echo 1 0 2
 </pre>
-For the 4th job, the command is: 
+For the 4th job, the command is:
 <pre>
 echo 1 1 3
 </pre>
@@ -330,8 +330,8 @@ echo 1 1 3
       <td>vars_iter</td>
       <td>No</td>
       <td>array[array]</td>
-      <td>A two-dimensional array. vars_iter list all the possible parameters for every position 
-      in the command line. And we will use algorithm Of Full Permutation to generate all the 
+      <td>A two-dimensional array. vars_iter list all the possible parameters for every position
+      in the command line. And we will use algorithm Of Full Permutation to generate all the
       permutation and combinations for these parameter that will be used to replace the <code>${n}</code> variable.
       The first row member of the array replace the variable <code>${1}</code> in the command,
       the second row member replace the variable <code>${2}</code> in the command, and so on.
@@ -345,22 +345,22 @@ commands_iter:
 </pre>
 then the final command will be:
 <pre>
-sh /tmp/scripts/step1.splitfq.sh sample1 0 25 
-sh /tmp/scripts/step1.splitfq.sh sample2 0 25 
-sh /tmp/scripts/step1.splitfq.sh sample1 1 25 
-sh /tmp/scripts/step1.splitfq.sh sample2 1 25 
+sh /tmp/scripts/step1.splitfq.sh sample1 0 25
+sh /tmp/scripts/step1.splitfq.sh sample2 0 25
+sh /tmp/scripts/step1.splitfq.sh sample1 1 25
+sh /tmp/scripts/step1.splitfq.sh sample2 1 25
 </pre>
 If there are many array members per line, you can use the range function.
 The format of range function:
 <pre>range(start, end, step)</pre>
- Start and end are all integer. And step can only be positive integer. 
+ Start and end are all integer. And step can only be positive integer.
  If you do not specify step, the default is 1.
 
 Range(1, 4) represents array [1,2,3]
-Range(1, 10, 2) represents array [1, 3, 5, 7, 9] 
+Range(1, 10, 2) represents array [1, 3, 5, 7, 9]
 <pre>
 vars_iter: - range(0, 4)
-</pre>the same as: 
+</pre>the same as:
 <pre>
 vars_iter: - [0, 1, 2, 3]
 </pre>
@@ -402,7 +402,7 @@ vars_iter: - [0, 1, 2, 3]
      Setting “whole” indicates that task B can start execution after all 100 steps of task A finished.
      </li>
      <li>
-     Setting “iterate” means that the 1st step of task A is completed, then the 1st step of the task B 
+     Setting “iterate” means that the 1st step of task A is completed, then the 1st step of the task B
      can start execution. Iterative execution can improve the overall concurrency efficiency.
      </li>
      </ul>
@@ -454,7 +454,7 @@ Optional, information about volume that required genome sequencing process requi
 ### Volumes format
 
 ```
-volumes: 
+volumes:
   <volume name>:
     mount_path: <mount_path>
     mount_from: <pvc info>

@@ -1,6 +1,6 @@
 +++
-title = "Kubedag Design and Architecturebe"
-description = "Kubedag design and aichitecture"
+title = "KubeDag Design and Architecture"
+description = "KubeDag design and architecture"
 weight = 10
 toc = true
 aliases = ["/docs/about/"]
@@ -11,22 +11,22 @@ aliases = ["/docs/about/"]
 
 ## Overview
 
-Kubedag is a workflow engine on Kubernetes platform. It is dedicated to making Gene Sequencing workflow execute in container easily. Anywhere you are running Kubernetes, you should be able to run KubeGene.
+KubeDag is a workflow engine on Kubernetes platform. It is dedicated to making Gene Sequencing workflow execute in container easily. Anywhere you are running Kubernetes, you should be able to run KubeGene.
 
 ## Goals
 
 The project is committed to the following design ideals:
 * Easy, portable deployments on various kubernetes env. Currently we support kubernetes 1.7+
 * Easy to use. Provide an easy to use template for different Gene Sequencing scenes. You can define a complex workflow easily.
-* High availability. Provide fail over, even if an instance down. 
+* High availability. Provide fail over, even if an instance down.
 * Flexible control. You can limit any reousrce requirement, concurrently running jobs, and select nodes to run on.
 
 
-## ArchitectureArchitecture
+## Architecture
 
-Kubedag implements the workflow as [Execution](/docs/about/execution) using [Kubernetes CRD](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions).
+KubeDag implements the workflow as [Execution](/docs/about/execution) using [Kubernetes CRD](/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions).
 
-Kubedag consists of three main components:
+KubeDag consists of three main components:
 * Execution controller
 * Job controller
 * Status updater
@@ -46,10 +46,10 @@ Kubedag consists of three main components:
 1. New added *Execution*
 *Job controller* gets all vertices of the graph which In-degress equals to 0. And create these jobs in kubernetes according to the parallelism limit. That is to say running all jobs which have no dependents first.
 
-1. A `Job` of *Execution* completed 
+1. A `Job` of *Execution* completed
 When job `A` is completed, *Job controller* would find other suitable Jobs to run. Following is how it is done:
 
-* It iterates *Execution* graph and find the Children jobs. 
+* It iterates *Execution* graph and find the Children jobs.
 * And then filter out the jobs whose dependents are not all completed. The left ones are ready to run.
 
 ### Status updater

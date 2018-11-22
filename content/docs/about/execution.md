@@ -12,7 +12,7 @@ aliases = ["/docs/about/"]
 
 ## Understanding Execution
 
-An *Execution* is the basic building block of KubeGene--the smallest and simplest unit in the KubeGene object model that you create or deploy. An Execution represents a group of running jobs on your kubernetes cluster.
+An *Execution* is the basic building block of KubeGene - the smallest and simplest unit in the KubeGene object model that you create or deploy. An Execution represents a group of running jobs on your kubernetes cluster.
 
 You describe a batch of jobs in an Execution object to achieve a common goal(like Gene Sequencing), each job can complete part of the whole work. And all jobs may have some dependent relationship. The jobs can share outputs by pvc or other datastore. KubeGene would schedule each job by the dependents relation.
 

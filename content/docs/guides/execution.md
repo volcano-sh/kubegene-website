@@ -41,7 +41,7 @@ spec:
     type: Job
 ```
 
-Running `kubectl get job`, you can see kube-dag run four jobs:
+Running `kubectl get job`, refer to kube-dag run four jobs:
 
 ```shell
 NAME             COMPLETIONS   DURATION   AGE
@@ -55,7 +55,7 @@ exec-whole.b.1   1/1           1s         16s
 
  **Note:** Job names are generated from Execution name and task name.
 
-Running `kubectl get execution exec-whole -oyaml`, and you can see the depend relation from `{{.status.vertices}}`:
+Running `kubectl get execution exec-whole -oyaml`, and refer to the depend relation from `{{.status.vertices}}`:
 ```shell
 apiVersion: execution.kubegene.io/v1alpha1
 kind: Execution
@@ -170,7 +170,7 @@ spec:
     type: Job
 ```
 
-Running `kubectl get job`, you can see kube-dag run four jobs:
+Running `kubectl get job`, refer to kube-dag run four jobs:
 
 ```shell
 NAME               COMPLETIONS   DURATION   AGE
@@ -180,7 +180,7 @@ exec-iterate.b.0   1/1           2s         17s
 exec-iterate.b.1   1/1           2s         17s
 ```
 
-Running `kubectl get execution exec-iterate -oyaml`, and you can see the depend relation from `{{.status.vertices}}`:
+Running `kubectl get execution exec-iterate -oyaml`, and refer to the depend relation from `{{.status.vertices}}`:
 
 ```shell
 apiVersion: execution.kubegene.io/v1alpha1
