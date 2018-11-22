@@ -10,15 +10,15 @@ aliases = ["/docs/guides/"]
   weight = 2
 +++
 
-genectl is a command line interface for running commands against KubeGene. You can use genectl to submit your workflow and query the status of workflow execution. 
+genectl is a command line interface for running commands against KubeGene. You can use genectl to submit your workflow and query the status of workflow execution.
 
 ## **genectl sub**
-submit genome sequencing workflow to kube-dag controller to execute. 
+submit genome sequencing workflow to kube-dag controller to execute.
 
 It contains three subcommand:
 
 ```
-genectl sub job 
+genectl sub job
 genectl sub repjob
 genectl sub workflow
 ```
@@ -31,7 +31,7 @@ genectl sub workflow
 | --dry-run           | No       | If true, display instantiate execution but do not submit                                                               |
 
 ## **genectl sub job**
-sub job command submits a job which execute a single shell script when perform genome sequencing. You should upload the shell script and sample data to the volume used by this job in preparation stage. 
+sub job command submits a job which execute a single shell script when perform genome sequencing. You should upload the shell script and sample data to the volume used by this job in preparation stage.
 
 ### Usage
 genectl sub job FILENAME [flags]
@@ -52,7 +52,7 @@ The args FILENAME is the absolute path of the shell script within the container.
 genectl sub job /kubegene/bwa_help.sh --memory 1g --cpu 1 --tool bwa:0.7.12 --pvc pvc-gene
 ```
 ## **genectl sub repjob**
-sub repjob command submits a group of job. 
+sub repjob command submits a group of job.
 ### Usage
 genectl sub repjob FILENAME [flags]
 The args[0] FILENAME is the absolute path of the shell script within the container. And every line in the shell script is a single job and it follow the format:
@@ -105,7 +105,7 @@ genectl sub workflow FILENAME [flag]
 gcs sub workflow wf.yaml --input UserInputs.json
 ```
 
-## **genectl describe** 
+## **genectl describe**
 Query the detail execution status of a workflow.
 ### Usage
 genectl describe executionName [flags]
@@ -151,7 +151,7 @@ List executions in exec-system namespace that are running or succeeded in yaml o
 ```		
 genectl get execution -n exec-system –phase Running,Succeeded
 ```
-## **genectl del** 
+## **genectl del**
 delete an execution of workflow
 ### Usage
 genectl del executionName [flags]

@@ -12,7 +12,6 @@ The following sections outline the process all changes to the KubeGene
 repositories go through.
 
 - [Working groups](#working-groups)
-- [Contributor license agreements](#contributor-license-agreements)
 - [Design documents](#design-documents)
 - [Contributing a feature](#contributing-a-feature)
 - [Setting up to contribute to KubeGene](#setting-up-to-contribute-to-kubegene)
@@ -23,16 +22,6 @@ repositories go through.
 
 The KubeGene community is organized into a set of working groups.
 Any contribution to KubeGene should be started by first engaging with the appropriate working group.
-
-## Contributor license agreements
-
-We'd love to accept your contributions! But before we can take them, you will have
-to fill out the [Google CLA](https://cla.developers.google.com).
-
-Once you are CLA'ed, we'll be able to accept your pull requests. This is
-necessary because you own the copyright to your changes, even after your
-contribution becomes part of this project. So this agreement simply gives Google
-permission to use and redistribute your contributions as part of the project.
 
 ## Design documents
 
@@ -114,10 +103,6 @@ To submit a proposed change:
 While there may be exceptions, the general rule is that all PRs should
 be 100% complete - meaning they should include all test cases and documentation
 changes related to the change.
-
-When ready, if you have not already done so, sign a
-[contributor license agreements](#contributor-license-agreements) and submit
-the PR.
 
 
 ## Issues

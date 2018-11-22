@@ -35,7 +35,7 @@ description: <info>
 | cpu         | No       | string | cpu is the recommended cpu resources request for this tool to run. If we do not specify cpu request in the workflow, this value will be used. Format: "Number + Unit".<ul><li>The number can be decimals.</li><li>The unit is C or c.</li></ul>For example, if the cpu required is 4C, you can fill in "4c" or "4C" here.                                                   |
 | memory      | No       | string | memory is the recommended memory resources request for this tool to run. If we do not specify memory request in the workflow, this value will be used. Format: "Number + Unit".<ul><li>The number can be decimals.</li><li>The unit is G or g.</li></ul>For example, if the memory size required is 4G, you can fill in "4G" or "4g" here.                                          |
 | command     | No       | string | The recommended command to use this tool.                                                                                                                                                        |
-| description | No       | string | Information about this tool and instructions info for use. The max length of name is 255 characters. 
+| description | No       | string | Information about this tool and instructions info for use. The max length of name is 255 characters.
 
 
 ## Tool instance
