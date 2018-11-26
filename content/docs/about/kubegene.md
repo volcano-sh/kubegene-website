@@ -11,7 +11,7 @@ aliases = ["/docs/about/"]
 
 ## What is KubeGene
 
-The KubeGene is dedicated to making genome sequencing process simple, portable and scalable. It provides a complete solution for genome sequencing on the kubernetes and supports mainstream biological genome sequencing scenarios such as DNA, RNA, and liquid biopsy. KubeGene is based on lightweight container technology and official standard algorithms. You can make a flexible and customizable genome sequencing process by using KubeGene.
+KubeGene is dedicated to making genome sequencing process simple, portable and scalable. It provides a complete solution for genome sequencing on the kubernetes and supports mainstream biological genome sequencing scenarios such as DNA, RNA, and liquid biopsy. KubeGene is based on lightweight container technology and official standard algorithms. You can make a flexible and customizable genome sequencing process by using KubeGene.
 
 KubeGene which running on the kubernetes makes genome sequencing simple and easy. It has the following characteristics:
 
