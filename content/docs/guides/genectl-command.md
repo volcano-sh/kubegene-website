@@ -26,7 +26,7 @@ genectl sub workflow
 
 | Flags               | Required | Description                                                                                                       |
 |---------------------|----------|-------------------------------------------------------------------------------------------------------------------|
-| --kubeconfig string | No       | cpu resource required to run this job, default 1 (default "1")                                                    |
+| --kubeconfig string | No       | config file used to access kube-apiserver, default "$HOME/.kube/config" |
 | --tool-repo string  | Yes      | directory or URL to tool repository, if it is a URL, it must point to tool file. (default "/root/kubegene/tools") |
 | --dry-run           | No       | If true, display instantiate execution but do not submit                                                               |
 
