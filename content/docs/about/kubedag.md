@@ -24,7 +24,7 @@ The project is committed to the following design ideals:
 
 ## Architecture
 
-KubeDag implements the workflow as [Execution](/docs/about/execution) using [Kubernetes CRD](/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions).
+KubeDag implements the workflow as [Execution](/docs/about/execution) using [Kubernetes CRD](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions).
 
 KubeDag consists of three main components:
 * Execution controller
