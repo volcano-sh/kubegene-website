@@ -28,7 +28,7 @@ Any contribution to KubeGene should be started by first engaging with the approp
 Any substantial design deserves a design document. Design documents are written with Google Docs and
 should be shared with the community by adding the doc to our [Team Drive](TBD)
 and sending a note to the appropriate working group to let people know the doc is there. To get write access
-to the drive, you'll need to be a [member](ROLES.md#member) of the KubeGene organization.
+to the drive, you'll need to be a [member](/docs/about/roles/#member) of the KubeGene organization.
 
 Anybody can access the team drive for reading and commenting. To get access simply join the
 [kubegene-team-drive-access@](TBD) group.
@@ -60,7 +60,7 @@ implementation in the issue.
 
 - Submit PRs to [kubegene/kubegene](https://github.com/kubegene/kubegene) with your code changes.
 
-- Submit PRs to [kubegene/docs](https://github.com/kubegene/docs) with
+- Submit PRs to [kubegene/docs](https://github.com/kubegene/website) with
 documentation for your feature, including usage examples when possible.
 
 > Note that we prefer bite-sized PRs instead of giant monster PRs. It's therefore preferable if you

@@ -185,4 +185,4 @@ $ minikube start --cpus 4 --memory 8096 --disk-size=40g
 
 ### Where to go next
 
-For further exploration refer to the [guide](/docs/guides/).
+For further exploration refer to the [guide](/docs/guides/workflow-grammar/).
