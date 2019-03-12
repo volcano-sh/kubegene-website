@@ -108,7 +108,7 @@ gcs sub workflow wf.yaml --input UserInputs.json
 ## **genectl describe**
 Query the detail execution status of a workflow.
 ### Usage
-genectl describe executionName [flags]
+genectl describe execution executionName [flags]
 ### Flags
 | Flags              | Required | Description                               |
 |--------------------|----------|-------------------------------------------|
@@ -116,13 +116,13 @@ genectl describe executionName [flags]
 
 ### example
 ```
-genectl describe my-exec –n gene-system
+genectl describe execution my-exec –n gene-system
 ```
 
 ## **genectl get**
 Query one or a list of execution status of workflows.
 ### Usage
-genectl get [flags]
+genectl get execution [flags]
 ### Flags
 | Flags              | Required | Description                                                                                                                                               |
 |--------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -151,10 +151,10 @@ List executions in exec-system namespace that are running or succeeded in yaml o
 ```		
 genectl get execution -n exec-system –phase Running,Succeeded
 ```
-## **genectl del**
+## **genectl delete**
 delete an execution of workflow
 ### Usage
-genectl del executionName [flags]
+genectl delete execution executionName [flags]
 ### Flags
 | Flags              | Required | Description                               |
 |--------------------|----------|-------------------------------------------|
@@ -162,5 +162,5 @@ genectl del executionName [flags]
 
 ### example
 ```
-genectl del my-exec –n gene-system
+genectl delete execution my-exec –n gene-system
 ```
