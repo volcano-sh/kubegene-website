@@ -24,6 +24,10 @@ theme = "theer"
     weight = 30
     url = "/docs/guides/"
 [[menu.main]]
+    name = "Design"
+    weight = 30
+    url = "/docs/design/"
+[[menu.main]]
     name = "GitHub"
     weight = 40
     url = "https://github.com/kubegene/"
