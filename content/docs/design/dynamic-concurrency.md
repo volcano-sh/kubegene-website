@@ -11,7 +11,7 @@ aliases = ["/docs/design/"]
 
 # **Dynamic Concurrency feature in KubeGene**
 
-In the process of gene data processing, it is often necessary to read the contents of a file to control concurrent tasks, or to obtain the "output results" of another tasks. 
+In the process of genome sequencing, it is often necessary to read the contents of a file to control concurrent tasks, or to obtain the "output results" of another tasks. 
 For example, after splitting the sample file by a fixed size, you need to get all the set of split file names. Or the previous step is distributed processing, and you need to get the sum of the results.
 
 
@@ -50,7 +50,7 @@ Will get:
 
     Vars_iter:
       - ["1", "2", "3", "4"] 
-This gives four concurrency, each variable being "1", "2", "3", "4". Among them, the separator is an arbitrary string.
+This gives four concurrencies, each variable being "1", "2", "3", "4". Among them, the separator is an arbitrary string.
 After having the get_result function, if you need to implement the task concurrently and dynamically according to the result of the previous step
 
 
@@ -129,7 +129,7 @@ Job-a:
 
 * Validations,instantiations etc for get_result  function in genectl 
 
-* changes in the execution crd to include the get_result related job like add command_iter in the task
+* changes in the execution API to include the get_result related job like add command_iter in the task
 
 ``` go
 // update the Task as below 
@@ -137,14 +137,38 @@ type Task struct {
 	
 	// CommandsIter defines batch command for workflows job.
 	CommandsIter CommandsIter `json:"commands_iter,omitempty"`
-	
-	}
+
+}
  ```
 * After getting the result from the depend job then need to update the  execution tasks by creating dynamic job 
 
+* get the result by using the log API
+
+```go
+res, err := e.kubeClient.CoreV1().Pods(job.Namespace).GetLogs(podList.Items[0].Name, nil).Param("limitBytes", "1024").DoRaw() 
+```
+
 * after updating the  execution tasks need to update/recreate the graph
 
-* need to update execution crd with the latest changes in execution tasks
+```go
+
+// ExecutionUpdater is an interface used to update the ExecutionSpec associated with a Execution.
+type ExecutionUpdater interface {
+	UpdateExecution(modified *genev1alpha1.Execution, original *genev1alpha1.Execution) error
+}
+
+// NewExecutionUpdater returns a ExecutionUpdater that updates the Spec of a Execution,
+// using the supplied client.
+func NewExecutionUpdater(client geneclientset.ExecutionsGetter) ExecutionUpdater {
+	return &executionUpdater{client}
+}
+
+type executionUpdater struct {
+	execClient geneclientset.ExecutionsGetter
+}
+```
+
+* need to update execution  with the latest changes in execution tasks
 
 * may required to change the execution status
  
