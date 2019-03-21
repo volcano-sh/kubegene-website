@@ -80,7 +80,8 @@ Job-a:
 
 # **get_result  function** 
 
-get_result (job-target,Split)
+* getresult is only available in the vars_iter field.
+* get_result (job-target,Split)
 
 Examples:
 
@@ -142,10 +143,10 @@ type Task struct {
  ```
 * After getting the result from the depend job then need to update the  execution tasks by creating dynamic job 
 
-* get the result by using the log API
+* get the result by using the log API and response data size limitation is 1K
 
 ```go
-res, err := e.kubeClient.CoreV1().Pods(job.Namespace).GetLogs(podList.Items[0].Name, nil).Param("limitBytes", "1024").DoRaw() 
+res, err := e.kubeClient.CoreV1().Pods(job.Namespace).GetLogs(podList.Items[0].Name, nil).Param("limitBytes", SIZELIMIT).DoRaw() 
 ```
 
 * after updating the  execution tasks need to update/recreate the graph
