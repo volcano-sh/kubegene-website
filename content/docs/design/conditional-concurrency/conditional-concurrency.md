@@ -1,6 +1,6 @@
 +++
-title = "Conditional Branch Requirement Overview and Design"
-description = "This page provides an overview of `Conditional Branch Requirement`"
+title = "Conditional Concurrency Requirement Overview and Design"
+description = "This page provides an overview of `Conditional Concurrency Requirement`"
 weight = 10
 toc = true
 aliases = ["/docs/design/"]
@@ -9,15 +9,14 @@ aliases = ["/docs/design/"]
   weight = 2 
 +++
 
-Kubegene needs if/else conditional branch and switch/case conditional branch handling.
-
 In the genome sequencing flow, sometimes the if-else process of the sequencing step or even the switch-case process needs to be implemented according to the situation. 
 For example, step A is used to judge whether the data is qualified. If the data is qualified, step B is performed, and if it is unqualified, step C is performed.
 
 Kubegene needs conditional branching in various scenarios. Kubegene need to support static conditional branching and dynamic conditional branching.
 
+So Kubegene needs if/else conditional branch and switch/case conditional branch handling.
 
-# **Static conditional branch**
+# **Static conditional concurrency**
 The so-called static is to determine which steps of the entire process do not need to be executed before running. 
 For example, if the complete process is A->B, when the process is executed, it is determined that the condition of the B step is false, 
 then the B step does not need to be executed.
@@ -39,7 +38,7 @@ Workflow:
       - echo run-job-a
 ```
 
-# **Dynamic conditional branch**
+# **Dynamic conditional concurrency**
 The so-called dynamic, that is, the process runs, and decide whether to perform the next step. This is the ability that many other existing processes (such as WDL) do not have.
 Because it is necessary to judge whether the current condition value is true or false according to the "execution result" of another step, 
 Kubegene uses the check_result function for dynamically conditional branch judging.
