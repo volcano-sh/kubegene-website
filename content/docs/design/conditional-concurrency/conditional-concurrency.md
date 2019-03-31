@@ -137,19 +137,19 @@ Job-c
 type JobInfo struct {
 
     // conditional branch handling
-	Condition interface{} `json:"condition,omitempty" yaml:"vars,omitempty"`
+    Condition interface{} `json:"condition,omitempty" yaml:"vars,omitempty"`
 	
 }
 
 // Condition  conditional branch handling  in Task
 type Condition struct {
-        Condition interface{} `json:"condition,omitempty"`
+    Condition interface{} `json:"condition,omitempty"`
 }
 
 // update the Task as below 
 type Task struct {
 	
-	// Specifies the condition for this task
+    // Specifies the condition for this task
     // +optional
     Condition *Condition `json:"condition",omitempty"`
 
