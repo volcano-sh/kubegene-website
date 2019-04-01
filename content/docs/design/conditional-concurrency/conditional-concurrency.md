@@ -135,9 +135,8 @@ Job-c
 
 // job information.
 type JobInfo struct {
-
     // conditional branch handling
-    Condition interface{} `json:"condition,omitempty" yaml:"vars,omitempty"`
+    Condition interface{} `json:"condition,omitempty" yaml:"condition,omitempty"`
 	
 }
 
@@ -148,9 +147,8 @@ type Condition struct {
 
 // update the Task as below 
 type Task struct {
-	
     // Specifies the condition for this task
-    // +optional
+    // optional
     Condition *Condition `json:"condition",omitempty"`
 
 }
@@ -163,14 +161,12 @@ type Task struct {
 
 ```go
 
-    //size limit 1k bytes extra 100 bytes added
-	var sizeLimit int64
-	sizeLimit = 1024 + 100
-
-	opt := v1.PodLogOptions{LimitBytes: &sizeLimit, SinceTime: &metav1.Time{}}
-
-	res, err := e.kubeClient.CoreV1().Pods(job.Namespace).GetLogs(podList.Items[0].Name,
-		&opt).Stream() 
+    // size limit 1k bytes extra 100 bytes added
+    var sizeLimit int64
+    sizeLimit = 1024 + 100
+    opt := v1.PodLogOptions{LimitBytes: &sizeLimit, SinceTime: &metav1.Time{}}
+    res, err := e.kubeClient.CoreV1().Pods(job.Namespace).GetLogs(podList.Items[0].Name,
+        &opt).Stream()
 		
 ```
 
