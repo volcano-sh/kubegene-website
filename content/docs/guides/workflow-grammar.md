@@ -130,6 +130,7 @@ workflow:
     commands：<commands>
     commands_iter: <commands with variable>
     depends：< dependent task>
+    condition: <The task will be executed only when this condition is satisfied>
 ```
 
 ### Field
@@ -201,6 +202,12 @@ commands:
       <td>No</td>
       <td>array[Struct]</td>
       <td>Specify other tasks that the current task depends on.</td>
+   </tr>
+   <tr>
+         <td>condition</td>
+         <td>No</td>
+         <td>interface{}</td>
+         <td>The task will be executed only when this condition is satisfied.</td>
    </tr>
 </table>
 
@@ -364,9 +371,20 @@ vars_iter: - range(0, 4)
 <pre>
 vars_iter: - [0, 1, 2, 3]
 </pre>
+
+</pre>
+In case if we need to pass the inputs dynamically based on the output of other task,
+we can use the get_result function.
+The format of get_result function: <pre>get_result(Job-Target, sep)
+ Job - Target-Specifies the target job name for the result.
+ sep - The separator used to split the string.
+</pre>
+get_result(job-a, " ") represents array [1,2,3]  if the output of the job-a is "1  2 3"
 </td>
    </tr>
 </table>
+
+[get_result:More-Info](https://kubegene.io/docs/design/dynamic-concurrency/dynamic-concurrency)
 
 #### Depends field description
 
@@ -410,6 +428,8 @@ vars_iter: - [0, 1, 2, 3]
    </tr>
 </table>
 
+#### command field description
+[command:More-Info](https://kubegene.io/docs/design/conditional-concurrency/conditional-concurrency)
 
 ### Workflow example
 
