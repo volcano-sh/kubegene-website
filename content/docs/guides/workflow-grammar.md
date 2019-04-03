@@ -373,7 +373,7 @@ vars_iter: - [0, 1, 2, 3]
 </pre>
 
 </pre>
-In case if we need to decide this task dynamically based on the output of other task,
+In case if we need to pass the inputs dynamically based on the output of other task,
 we can use the get_result function.
 The format of get_result function: <pre>get_result(Job-Target, sep)
  Job - Target-Specifies the target job name for the result.
