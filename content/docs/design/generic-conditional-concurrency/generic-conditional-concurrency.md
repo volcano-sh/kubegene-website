@@ -41,10 +41,10 @@ Workflow:
     genericcondition:         # <==Judge the result of job-a and decide whether the current step is executed.
       dependjobname: Job-a    # <==The given one of the matching rule should satisfy the job-a result which should be list of key:value  separated by ,
       matchrules:
-        - key: testscenario
+        - key: testkey
           operator: In
           values:
-           - testwithInOp
+           - testvalue
     commands:
       - echo run-job-b
   Job-c:
@@ -54,7 +54,6 @@ Workflow:
        matchrules:
         - key: testscenarioinv
           operator: Exists
-            - testwithInOp
     commands:
       - echo run-job-c
   Job-d:
@@ -62,10 +61,8 @@ Workflow:
     genericcondition: 
        dependjobname: Job-a
        matchrules:
-         - key: testscenario
+         - key: testkey
            operator: DoesNotExists
-           values:
-             - testwithInOp
     commands:
       - echo run-job-d
       
