@@ -124,8 +124,8 @@ type MatchRule struct {
 
 // generic Conditional dynamic handling match rules are ORed.
 type GenericCondition struct {
-    DependJobName string      `json:"dependjobname,omitempty" yaml:"dependjobname,omitempty"`
-    MatchRules    []MatchRule `json:"matchrules,omitempty" yaml:"matchrules,omitempty"`
+    DependJobName string      `json:"dependjobname" yaml:"dependjobname"`
+    MatchRules    []MatchRule `json:"matchrules" yaml:"matchrules"`
 }
 
 ```
@@ -175,8 +175,8 @@ type MatchRule struct {
 
 // generic Conditional dynamic handling match rules are ORed.
 type GenericCondition struct {
-    DependJobName string      `json:"dependjobname,omitempty"`
-    MatchRules    []MatchRule `json:"matchrules,omitempty"`
+    DependJobName string      `json:"dependjobname"`
+    MatchRules    []MatchRule `json:"matchrules"`
 }
 
  ```
